@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import {client, urlFor } from '../lib/client'
-//import styles from '../styles/Home.module.css'
 
 const MILISEC_IN_YEAR = 31556952000
 const YEARS_IN_100_MILISEC = 1/315569520
@@ -10,6 +9,7 @@ export default function Home({about}) {
 
   const [Age, setAge] = useState(0)
   const [showAbout, setShowAbout] = useState(false)
+
   const getAge = ()=>{
     let currentTime = new Date().getTime()
     let birthTime = new Date(DATE_OF_BIRTH).getTime()
@@ -20,7 +20,6 @@ export default function Home({about}) {
   }
 
   useEffect(()=>{
-    
      const currentAge = getAge()
      setAge(currentAge)
 
@@ -30,14 +29,13 @@ export default function Home({about}) {
 
      return () => {
         clearInterval(intervalId);
-      };
+      }
   },[])
 
   return (
     <>
       <h1>
         Hello my name is <span>{about[0].name}</span> 👋
-        
       </h1>
       <div>
         <h2>{about[0].description}</h2>
@@ -64,5 +62,3 @@ export const getServerSideProps = async()=>{
     props: { about }
   }
 }
-
-
