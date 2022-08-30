@@ -4,8 +4,7 @@
     display:flex;
     justify-content:space-around;
     align-items:center;
-
-    padding: 1 rem 2 rem;
+    padding: 1rem;
     background: rgb(138, 138, 138);
     border:1px solid rgba(255, 255, 255, 0.18);
     position:fixed;
@@ -50,8 +49,6 @@
   }
 }
 
-
-
 .app__navbar_link{
 
     &:hover{
@@ -85,6 +82,7 @@
       height: 70%;
       color: var(--white-color);
       cursor:pointer;
+      
     }
   
     div {
@@ -93,8 +91,8 @@
       bottom: 0;
       right: 0;
       z-index: 5;
-  
-      padding: 1rem;
+      
+      padding: 1rem 2rem 1rem 1rem;
   
       width: 100%;
       height: 100vh;
@@ -168,7 +166,7 @@
 
 .app__navbar_social_media{
   width:200px;
- 
+  
   display:flex;
   justify-content: space-around;
   svg{
@@ -182,8 +180,9 @@
       height:35px;
       width:35px;
     }
-    
-
+  }
+  @media screen and (max-width: 520px){
+    width:140px;
   }
 }
 
@@ -196,11 +195,4 @@
   }
 }
 
-@keyframes widthDecrease {
-  from {
-    width:100%;
-  } to {
-    width:0%
-  }
-}
 

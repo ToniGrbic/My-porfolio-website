@@ -21,7 +21,7 @@ const Navbar = () => {
   return ( 
     <nav className={styles.app__navbar}>
         <div>
-            <h3>my portfolio</h3>
+            <h3>portfolio</h3>
         </div>
         <div>
             <ul className={styles.app__navbar_links}>
@@ -61,7 +61,7 @@ const Navbar = () => {
                 <HiX onClick={()=> setToggle(false)}/>
                
                 <ul> 
-                  <h3>my portfolio</h3>
+                  <h3>portfolio</h3>
                 {links.map((link)=>{
                 return (
                   <li key={link} >

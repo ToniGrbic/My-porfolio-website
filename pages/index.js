@@ -34,7 +34,7 @@ export default function Home({about}) {
 
   return (
     <>
-    <div>
+    <div className='descriptionDiv'>
       <h1>
         Hello my name is <span>{about[0].name}</span> 
       </h1>
