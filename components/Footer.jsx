@@ -21,7 +21,7 @@ const Footer = ({position}) => {
         <SocialLinks/>
       </div>
        <p>Gmail: tonigrbic.5@gmail.com</p>
-     <p>-- {year} Created by Toni Grbić, all rights reserved --</p>
+     <p>{year} Created by Toni Grbić, all rights reserved</p>
     </div>
   )
 }

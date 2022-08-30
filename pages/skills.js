@@ -3,7 +3,6 @@ import { urlFor, client } from '../lib/client'
 import styles from '../styles/Skills.module.scss'
 import { Modal} from '../components'
 
-
 const Skills = ({skills}) => {
 
   const [showSkillModal, setShowSkillModal] = useState(false)

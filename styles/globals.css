@@ -65,14 +65,24 @@ a {
     flex-direction:column;
     color:white;
     padding-top:50px;
+    
   }
   .container h1 span{
     font-family: handScript;
-    font-size:3rem;
+    font-size:3.5rem;
   }
+
+  @media screen and (max-width: 540px){
+    .container h1 span{
+      display:block;
+    }
+      
+  }
+
   .about{
-    width:60%;
-    margin:2rem;
+    width:90%;
+    margin-bottom:9rem;
+    margin-top:1rem;
     padding:2rem;
     background:rgba(0,0,0,0.55);
     border-radius:10px;
@@ -80,7 +90,24 @@ a {
     opacity:1;
     transition:opacity 0.3s ease-in-out;
     text-align:left;
+    
   }
+  @media screen and (max-width: 480px){
+    .about{
+      
+      font-size:1rem;
+    }
+      
+  }
+
+  @media screen and (min-width: 769px){
+    .about{
+      width:60%;
+      font-size:1.1rem;
+    }
+      
+  }
+
   .fade{
     opacity:0;
   }

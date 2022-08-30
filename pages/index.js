@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import {client, urlFor } from '../lib/client'
+import {client} from '../lib/client'
 
 const MILISEC_IN_YEAR = 31556952000
 const YEARS_IN_100_MILISEC = 1/315569520
@@ -35,12 +35,12 @@ export default function Home({about}) {
   return (
     <>
       <h1>
-        Hello my name is <span>{about[0].name}</span> 👋
+        Hello my name is <span>{about[0].name}</span> 
       </h1>
       <div>
         <h2>{about[0].description}</h2>
       </div>
-      <h2>{Age.toFixed(9)} years old</h2>
+      <h2>{Age.toFixed(8)} years old</h2>
       <button onClick={()=> setShowAbout(prev => !prev)}
               className='aboutBtn'
       >

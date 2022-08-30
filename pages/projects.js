@@ -4,7 +4,6 @@ import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { urlFor, client } from '../lib/client';
 import { Modal } from '../components'
 
-
 const Projects = ({projects}) => {
 
   const [showProjectModal, setShowProjectModal] = useState(false)
