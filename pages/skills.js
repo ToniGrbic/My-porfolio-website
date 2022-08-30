@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { urlFor, client } from '../lib/client'
 import styles from '../styles/Skills.module.scss'
 import { Modal} from '../components'
-import Image from 'next/image'
+
 
 const Skills = ({skills}) => {
 
@@ -33,7 +33,7 @@ const Skills = ({skills}) => {
                  key={skill._id}
                  onClick={()=>handleShowSkillModal(skill._id)}>
                   <div className='app__flex'>
-                      <Image src={urlFor(skill.icon)} alt={skill.name}/>
+                      <img src={urlFor(skill.icon)} alt={skill.name}/>
                       <p>{skill.name}</p>
                   </div>
             </div>

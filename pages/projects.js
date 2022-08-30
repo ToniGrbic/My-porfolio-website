@@ -3,7 +3,7 @@ import styles from '../styles/Projects.module.scss'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { urlFor, client } from '../lib/client';
 import { Modal } from '../components'
-import Image from 'next/image'
+
 
 const Projects = ({projects}) => {
 
@@ -40,7 +40,7 @@ const Projects = ({projects}) => {
           <div className={styles.app__work_item} key={project._id}>
             
             <div className={`${styles.app__work_img} app__flex`}>
-              <Image src ={urlFor(project.imgUrl)} 
+              <img src ={urlFor(project.imgUrl)} 
                      alt={project.name}/>
               <div className={`${styles.app__work_hover} app__flex`}>
                 <a href={project.projectLink} target="_blank" rel="noreferrer">
