@@ -59,7 +59,9 @@ const Navbar = () => {
               <div>
                 
                 <HiX onClick={()=> setToggle(false)}/>
-                <ul >
+               
+                <ul> 
+                  <h3>my portfolio</h3>
                 {links.map((link)=>{
                 return (
                   <li key={link} >

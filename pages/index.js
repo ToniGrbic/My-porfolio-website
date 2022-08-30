@@ -34,13 +34,13 @@ export default function Home({about}) {
 
   return (
     <>
+    <div>
       <h1>
         Hello my name is <span>{about[0].name}</span> 
       </h1>
-      <div>
-        <h2>{about[0].description}</h2>
-      </div>
+      <h2>{about[0].description}</h2>
       <h2>{Age.toFixed(8)} years old</h2>
+    </div>
       <button onClick={()=> setShowAbout(prev => !prev)}
               className='aboutBtn'
       >
