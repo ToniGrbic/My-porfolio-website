@@ -1,19 +1,19 @@
 .app__works {
-    display:flex;
+    display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    position: relative;
   }
   
   .app__work_portfolio {
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-bottom:70px;
-    
+    position: relative;
     .app__work_item {
       width: 290px;
       min-width:290px;

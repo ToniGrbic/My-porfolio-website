@@ -1,21 +1,17 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from '../styles/Footer.module.scss'
 import { SocialLinks } from '../components'
 
-const Footer = ({position}) => {
+const Footer = () => {
   const [year, setYear] = useState('')
-  const footerDiv = useRef(null)
+
   useEffect(()=>{
     const currentYear = new Date().getFullYear().toString()
     setYear(currentYear)
   },[])
 
-  useEffect(()=>{
-    footerDiv.current.style.top = `${position-130}px`
-  },[position])
-
   return (
-    <div className={styles.app__footer} ref={footerDiv}>
+    <div className={styles.app__footer}>
       <p>My socials:</p> 
       <div>
         <SocialLinks/>
