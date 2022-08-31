@@ -10,12 +10,15 @@ const Projects = ({projects}) => {
   const [modalDesc, setModalDesc]= useState('')
   const [modalTitle, setModalTitle] = useState('')
   const [modalTags, setModalTags] = useState([])
+  const [modalLinks, setModalLinks] = useState({})
   
   const handleShowModal = (projectId)=>{
     const currentProject = projects.find((project)=>project._id === projectId)
     setModalDesc(currentProject.description)
     setModalTitle(currentProject.title)
     setModalTags(currentProject.tags)
+    setModalLinks({ projectLink:currentProject.projectLink, 
+                    codeLink:currentProject.codeLink })
     setShowProjectModal(true)
   }
   return (
@@ -29,6 +32,7 @@ const Projects = ({projects}) => {
               description={modalDesc}
               title={modalTitle}
               tags={modalTags}
+              modalLinks={modalLinks}
               setShowModal={setShowProjectModal}
           /> )} 
     

@@ -1,11 +1,10 @@
 import React from 'react'
+import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 
-const  Modal = ({description, title, tags, setShowModal}) => {
+const  Modal = ({description, title, tags, setShowModal, modalLinks}) => {
   return (
     <div className='modal'>
-       
         <div className='modal-content'>
-            
              <span 
                 className='close' 
                 onClick={()=>setShowModal(false)}>
@@ -25,6 +24,14 @@ const  Modal = ({description, title, tags, setShowModal}) => {
                     )
                  })}
                 </ul>
+                {modalLinks && <div className="modalLinks">
+                  <h3>Links:</h3>
+                  {modalLinks.projectLink && 
+                  <p><AiFillEye/><a href={modalLinks.projectLink}>  Website </a></p>
+                  }
+                  <p><AiFillGithub/><a href={modalLinks.codeLink}>  GitHub</a></p>
+                </div>
+                } 
             </div>)
             } 
         </div>
