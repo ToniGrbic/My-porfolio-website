@@ -1,20 +1,13 @@
-.app__works {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
   
-  .app__work_portfolio {
+.app__project_portfolio {
     
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
-    .app__work_item {
+
+    .app__project_item {
       width: 290px;
       min-width:290px;
       max-height:370px;
@@ -46,7 +39,7 @@
     }
   }
   
-  .app__work_img {
+  .app__project_img {
     width: 100%;
     height: 230px;
   
@@ -64,7 +57,7 @@
     }
   }
   
-  .app__work_hover {
+  .app__project_hover {
     position: absolute;
     top: 0;
     left: 0;
@@ -105,7 +98,7 @@
     }
   }
   
-  .app__work_content {
+  .app__project_content {
     padding: 0.6rem;
     width: 100%;
     position: relative;
@@ -120,7 +113,7 @@
       }
     }
   
-    .app__work_tag {
+    .app__project_tag {
       position: absolute;
   
       padding: 0.5rem 1rem;

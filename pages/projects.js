@@ -7,32 +7,23 @@ import { Modal } from '../components'
 const Projects = ({projects}) => {
 
   const [showProjectModal, setShowProjectModal] = useState(false)
-  const [modalDesc, setModalDesc]= useState('')
-  const [modalTitle, setModalTitle] = useState('')
-  const [modalTags, setModalTags] = useState([])
-  const [modalLinks, setModalLinks] = useState({})
+  const [modalProject, setModalProject] = useState({})
   
   const handleShowModal = (projectId)=>{
-    const currentProject = projects.find((project)=>project._id === projectId)
-    setModalDesc(currentProject.description)
-    setModalTitle(currentProject.title)
-    setModalTags(currentProject.tags)
-    setModalLinks({ projectLink:currentProject.projectLink, 
-                    codeLink:currentProject.codeLink })
+    const currentProject = projects.find((project)=> project._id === projectId)
+    const { title, description, projectLink, codeLink, tags } = currentProject
+    setModalProject({ title, description, projectLink, codeLink, tags })
     setShowProjectModal(true)
   }
   return (
     <>
-    <h1 className="head-text"><span>My Projects</span></h1>
+    <h1><span>My Projects</span></h1>
 
-    <div className={styles.app__work_portfolio}>
+    <div className={styles.app__project_portfolio}>
        
          { showProjectModal && (
           <Modal 
-              description={modalDesc}
-              title={modalTitle}
-              tags={modalTags}
-              modalLinks={modalLinks}
+              {...modalProject}
               setShowModal={setShowProjectModal}
           /> )} 
     
@@ -40,12 +31,12 @@ const Projects = ({projects}) => {
         projects?.map((project) =>{
           return (
          
-          <div className={styles.app__work_item} key={project._id}>
-            
-            <div className={`${styles.app__work_img} app__flex`}>
+          <div className={styles.app__project_item} key={project._id}>
+            {console.log(project)}
+            <div className={`${styles.app__project_img} app__flex`}>
               <img src ={urlFor(project.imgUrl)} 
                      alt={project.name}/>
-              <div className={`${styles.app__work_hover} app__flex`}>
+              <div className={`${styles.app__project_hover} app__flex`}>
                 <a href={project.projectLink} target="_blank" rel="noreferrer">
                   <div className='app__flex'>
                     <AiFillEye />
@@ -58,7 +49,7 @@ const Projects = ({projects}) => {
                 </a>
               </div>
             </div>
-            <div className={`${styles.app__work_content} app__flex`}>
+            <div className={`${styles.app__project_content} app__flex`}>
               <h4 className="bold-text">{project.title}</h4>
               <p className="p-text" 
                  style={{ marginTop: 10 }}>
@@ -68,7 +59,7 @@ const Projects = ({projects}) => {
                     Description
                   </button>
               </p>
-              <div className={`${styles.app__work_tag} app__flex`}>
+              <div className={`${styles.app__project_tag} app__flex`}>
                 <p className="p-text">{project.tags[0]}</p>
               </div>
             </div>

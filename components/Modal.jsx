@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 
-const  Modal = ({description, title, tags, setShowModal, modalLinks}) => {
+const  Modal = ({description, title, tags, codeLink, projectLink, setShowModal}) => {
   return (
     <div className='modal'>
         <div className='modal-content'>
@@ -24,12 +24,12 @@ const  Modal = ({description, title, tags, setShowModal, modalLinks}) => {
                     )
                  })}
                 </ul>
-                {modalLinks && <div className="modalLinks">
+                {codeLink && <div className="modalLinks">
                   <h3>Links:</h3>
-                  {modalLinks.projectLink && 
-                  <p><AiFillEye/><a href={modalLinks.projectLink}>  Website </a></p>
+                  {projectLink && 
+                  <p><AiFillEye/><a href={projectLink}>  Website </a></p>
                   }
-                  <p><AiFillGithub/><a href={modalLinks.codeLink}>  GitHub</a></p>
+                  <p><AiFillGithub/><a href={codeLink}>  GitHub</a></p>
                 </div>
                 } 
             </div>)

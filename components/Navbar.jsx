@@ -11,7 +11,6 @@ const Navbar = () => {
 
   const handleClick = (link)=>{
     setCurrentLink(link)
-    
   }
   const handleMenuClick = (link) =>{
     setCurrentLink(link)
@@ -36,7 +35,7 @@ const Navbar = () => {
                                 styles.app__navbar_link_color : ''}`} 
                                 onClick={()=>handleClick(link)} 
                               >
-                              {link === '' ? 'home' : link} 
+                                {link === '' ? 'home' : link} 
                               <div 
                                  className={currentLink === link ? 
                                 `${styles.app__navbar_link_underline}` : ''}>
@@ -52,6 +51,8 @@ const Navbar = () => {
           <SocialLinks/>
         </div>
         
+
+
         <div className={styles.app__navbar_menu}>
           <HiMenuAlt4 onClick={()=>setToggle(true)}/>
           {
@@ -66,12 +67,12 @@ const Navbar = () => {
                 return (
                   <li key={link} >
                      <Link href={`/${link}`} 
-                          key={`link-${link}`}>
+                           key={`link-${link}`}>
                           <a onClick={()=> handleMenuClick(link)}
                             className={currentLink === link ? 
                             styles.app__navbar_menulink_color : ''}
                           >
-                            { link === '' ? 'home' : link }
+                            {link === '' ? 'home' : link} 
                           </a>
                       </Link>
                   </li>) 
