@@ -32,7 +32,8 @@ const Skills = ({skills}) => {
                  key={skill._id}
                  onClick={()=>handleShowSkillModal(skill._id)}>
                   <div className='app__flex'>
-                      <img src={urlFor(skill.icon)} alt={skill.name}/>
+                      <img src={urlFor(skill.icon)} 
+                           alt={skill.name}/>
                       <p>{skill.name}</p>
                   </div>
             </div>

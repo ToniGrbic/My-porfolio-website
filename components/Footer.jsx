@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styles from '../styles/Footer.module.scss'
-import { SocialLinks } from '../components'
+import { SocialLinks } from './'
 
 const Footer = () => {
   const [year, setYear] = useState('')

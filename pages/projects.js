@@ -11,8 +11,10 @@ const Projects = ({projects}) => {
   
   const handleShowModal = (projectId)=>{
     const currentProject = projects.find((project)=> project._id === projectId)
+
     const { title, description, projectLink, codeLink, tags } = currentProject
     setModalProject({ title, description, projectLink, codeLink, tags })
+
     setShowProjectModal(true)
   }
   return (
@@ -32,7 +34,7 @@ const Projects = ({projects}) => {
           return (
          
           <div className={styles.app__project_item} key={project._id}>
-            {console.log(project)}
+            
             <div className={`${styles.app__project_img} app__flex`}>
               <img src ={urlFor(project.imgUrl)} 
                      alt={project.name}/>
@@ -47,7 +49,7 @@ const Projects = ({projects}) => {
                     <AiFillGithub/>
                   </div>
                 </a>
-              </div>
+                </div>
             </div>
             <div className={`${styles.app__project_content} app__flex`}>
               <h4 className="bold-text">{project.title}</h4>

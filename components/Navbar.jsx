@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import styles from '../styles/Navbar.module.scss'
-import {HiMenuAlt4, HiX} from 'react-icons/hi'
-import { SocialLinks } from '../components'
+import { HiMenuAlt4, HiX } from 'react-icons/hi'
+import { SocialLinks } from './'
 
 const Navbar = () => {
   const links = ['', 'projects', 'skills']
   const [currentLink, setCurrentLink] = useState('')
   const [toggle, setToggle] = useState(false)
 
-  const handleClick = (link)=>{
+  const handleNavbarClick = (link)=>{
     setCurrentLink(link)
   }
   const handleMenuClick = (link) =>{
@@ -33,7 +33,7 @@ const Navbar = () => {
                              `${styles.app__navbar_link}
                               ${currentLink === link ? 
                                 styles.app__navbar_link_color : ''}`} 
-                                onClick={()=>handleClick(link)} 
+                                onClick={()=>handleNavbarClick(link)} 
                               >
                                 {link === '' ? 'home' : link} 
                               <div 
@@ -47,6 +47,7 @@ const Navbar = () => {
                 })}
             </ul>
         </div>
+
         <div className={styles.app__navbar_social_media}>
           <SocialLinks/>
         </div>
@@ -68,10 +69,10 @@ const Navbar = () => {
                   <li key={link} >
                      <Link href={`/${link}`} 
                            key={`link-${link}`}>
-                          <a onClick={()=> handleMenuClick(link)}
-                            className={currentLink === link ? 
-                            styles.app__navbar_menulink_color : ''}
-                          >
+                            <a onClick={()=> handleMenuClick(link)}
+                               className={currentLink === link ? 
+                               styles.app__navbar_menulink_color : ''}
+                            >
                             {link === '' ? 'home' : link} 
                           </a>
                       </Link>
