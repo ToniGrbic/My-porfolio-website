@@ -52,8 +52,6 @@ const Navbar = () => {
           <SocialLinks/>
         </div>
         
-
-
         <div className={styles.app__navbar_menu}>
           <HiMenuAlt4 onClick={()=>setToggle(true)}/>
           {

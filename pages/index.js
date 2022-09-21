@@ -9,7 +9,7 @@ export default function Home({about}) {
 
   const [Age, setAge] = useState(0)
   const [showAbout, setShowAbout] = useState(false)
-
+  
   const getAge = ()=>{
     let currentTime = new Date().getTime()
     let birthTime = new Date(DATE_OF_BIRTH).getTime()
@@ -22,9 +22,9 @@ export default function Home({about}) {
   useEffect(()=>{
      const currentAge = getAge()
      setAge(currentAge)
-
+     
      const intervalId = setInterval(()=>{
-       setAge(age=>age+ YEARS_IN_100_MILISEC)
+       setAge(age=>age + YEARS_IN_100_MILISEC)
      },100)
 
      return () => {
@@ -58,6 +58,7 @@ export default function Home({about}) {
 export const getServerSideProps = async()=>{
   const query = '*[_type == "about"]'
   const about = await client.fetch(query)
+  
   return {
     props: { about }
   }
