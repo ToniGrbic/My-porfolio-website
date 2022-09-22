@@ -5,13 +5,13 @@ const Layout = ({children}) => {
 
   return (
     <div className="wrapper">
-    <div className="layoutDiv">
-    <header>
-      <Navbar/>
-    </header >
-    <main className="container">
-      {children}
-    </main>
+    <div>
+      <header>
+        <Navbar/>
+      </header >
+      <main className="container">
+        {children}
+      </main>
     </div>
       <footer>
         <Footer/>

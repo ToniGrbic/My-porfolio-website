@@ -80,7 +80,7 @@
     svg {
       width: 70%;
       height: 70%;
-      color: var(--white-color);
+      color: white;
       cursor:pointer;
       
     }
@@ -185,7 +185,6 @@
     width:140px;
   }
 }
-
 
 @keyframes widthIncrease {
   from {

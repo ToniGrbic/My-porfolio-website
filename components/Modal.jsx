@@ -3,10 +3,10 @@ import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 
 const  Modal = ({description, title, tags, codeLink, projectLink, setShowModal}) => {
   return (
-    <div className='modal'>
-        <div className='modal-content'>
+    <div className='app__modal'>
+        <div className='app__modalContent'>
              <span 
-                className='close' 
+                className='app__close' 
                 onClick={()=>setShowModal(false)}>
                 &times;
             </span>
@@ -24,7 +24,7 @@ const  Modal = ({description, title, tags, codeLink, projectLink, setShowModal})
                     )
                  })}
                 </ul>
-                {codeLink && <div className="modalLinks">
+                {codeLink && <div className="app__modalLinks">
                   <h3>Links:</h3>
                   {projectLink && 
                   <p><AiFillEye/><a href={projectLink}>  Website </a></p>

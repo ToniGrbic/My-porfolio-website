@@ -24,8 +24,8 @@ const Project = ({project, handleShowModal}) => {
                 </div>
             </div>
             <div className={`${styles.app__project_content} app__flex`}>
-              <h4 className="bold-text">{project.title}</h4>
-              <p className="p-text" 
+              <h4 className="app__bold-text">{project.title}</h4>
+              <p className="app__p-text" 
                  style={{ marginTop: 10 }}>
                   <button 
                     className='openModalBtn' 
@@ -34,7 +34,7 @@ const Project = ({project, handleShowModal}) => {
                   </button>
               </p>
               <div className={`${styles.app__project_tag} app__flex`}>
-                <p className="p-text">{project.tags[0]}</p>
+                <p className="app__p-text">{project.tags[0]}</p>
               </div>
             </div>
           </div>

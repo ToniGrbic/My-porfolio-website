@@ -33,7 +33,6 @@ const Projects = ({projects}) => {
                       handleShowModal={handleShowModal}
                   />)
             })}
-      
     </div>
     </>)
 }
