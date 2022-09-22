@@ -9,8 +9,8 @@ const Skills = ({skills}) => {
   const [modalDesc, setModalDesc]= useState('')
   const [modalTitle, setModalTitle] = useState('')
 
-  const handleShowSkillModal = (skillId)=>{
-    const currentSkill = skills.find((skill)=>skill._id === skillId)
+  const handleShowSkillModal = (skill_id)=>{
+    const currentSkill = skills.find((skill)=>skill._id === skill_id)
     setModalDesc(currentSkill.description)
     setModalTitle(currentSkill.name)
     setShowSkillModal(true)

@@ -5,7 +5,7 @@ import { urlFor } from '../lib/client';
 
 const Project = ({project, handleShowModal}) => {
   return (
-    <div className={styles.app__project_item} key={project._id}>
+    <div className={styles.app__project_item}>
             
             <div className={`${styles.app__project_img} app__flex`}>
               <img src ={urlFor(project.imgUrl)} 

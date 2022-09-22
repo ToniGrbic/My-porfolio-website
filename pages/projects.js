@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styles from '../styles/Projects.module.scss'
-
-import {  client } from '../lib/client';
+import { client } from '../lib/client';
 import { Modal, Project } from '../components'
 
 const Projects = ({projects}) => {
@@ -26,14 +25,15 @@ const Projects = ({projects}) => {
               {...modalProject}
               setShowModal={setShowProjectModal}
           /> )} 
-    
-      {
-        projects?.map((project) =>{
-          return (<Project 
+      
+        { projects?.map((project) =>{
+            return (
+                  <Project key={project._Id}
                       project={project} 
-                      handleShowModal={handleShowModal}/>)
-        })
-      }
+                      handleShowModal={handleShowModal}
+                  />)
+            })}
+      
     </div>
     </>)
 }
