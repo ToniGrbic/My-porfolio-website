@@ -55,7 +55,13 @@ export default function Home({about}) {
   )
 }
 
-export const getServerSideProps = async()=>{
+export const getServerSideProps = async({res})=>{
+  
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
   const query = '*[_type == "about"]'
   const about = await client.fetch(query)
   
