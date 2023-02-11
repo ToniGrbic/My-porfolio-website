@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { urlFor, client } from '../lib/client'
+import { client } from '../lib/client'
 import styles from '../styles/Skills.module.scss'
 import { Modal} from '../components'
-
+import Image from 'next/image'
+import { useNextSanityImage } from 'next-sanity-image'
 const Skills = ({skills}) => {
-
+  
   const [showSkillModal, setShowSkillModal] = useState(false)
   const [modalDesc, setModalDesc]= useState('')
   const [modalTitle, setModalTitle] = useState('')
@@ -27,13 +28,19 @@ const Skills = ({skills}) => {
       <div className={styles.app__skills_container}>
         <div className={styles.app__skills_list}>
         { skills?.map((skill)=>{
+          const imageProps = useNextSanityImage(
+            client,
+            skill.icon
+          )
           return (
             <div className={`${styles.app__skills_item} app__flex`}
                  key={skill._id}
                  onClick={()=>handleShowSkillModal(skill._id)}>
                   <div className='app__flex'>
-                      <img src={urlFor(skill.icon)} 
-                           alt={skill.name}/>
+                      <Image {...imageProps}
+                             width={50}
+                             height={50}
+                             alt={skill.name}/>
                       <p>{skill.name}</p>
                   </div>
             </div>
@@ -48,6 +55,7 @@ const Skills = ({skills}) => {
 export const getServerSideProps = async()=>{
   const query = '*[_type == "skills"]'
   const skills = await client.fetch(query)
+  
   return {
     props: { skills }
   }

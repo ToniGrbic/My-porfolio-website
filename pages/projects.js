@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../styles/Projects.module.scss'
 import { client } from '../lib/client';
 import { Modal, Project } from '../components'
-
+import { useNextSanityImage } from 'next-sanity-image';
 const Projects = ({projects}) => {
 
   const [showProjectModal, setShowProjectModal] = useState(false)
@@ -27,8 +27,14 @@ const Projects = ({projects}) => {
           /> )} 
       
         { projects?.map((project) =>{
+          const imageProps = useNextSanityImage(
+            client,
+            project.imgUrl
+          )
             return (
                   <Project key={project._Id}
+                      imageProps={imageProps}
+                      
                       project={project} 
                       handleShowModal={handleShowModal}
                   />)
