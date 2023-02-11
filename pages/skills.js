@@ -9,7 +9,7 @@ const Skills = ({skills}) => {
   const [showSkillModal, setShowSkillModal] = useState(false)
   const [modalDesc, setModalDesc]= useState('')
   const [modalTitle, setModalTitle] = useState('')
-
+  const nextSanityImage = useNextSanityImage;
   const handleShowSkillModal = (skill_id)=>{
     const currentSkill = skills.find((skill)=>skill._id === skill_id)
     setModalDesc(currentSkill.description)
@@ -28,7 +28,7 @@ const Skills = ({skills}) => {
       <div className={styles.app__skills_container}>
         <div className={styles.app__skills_list}>
         { skills?.map((skill)=>{
-          const imageProps = useNextSanityImage(
+          const imageProps = nextSanityImage(
             client,
             skill.icon
           )

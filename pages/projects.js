@@ -7,7 +7,7 @@ const Projects = ({projects}) => {
 
   const [showProjectModal, setShowProjectModal] = useState(false)
   const [modalProject, setModalProject] = useState({})
-  
+  const nextSanityImage = useNextSanityImage
   const handleShowModal = (projectId)=>{
     const currentProject = projects.find((project)=> project._id === projectId)
 
@@ -27,7 +27,7 @@ const Projects = ({projects}) => {
           /> )} 
       
         { projects?.map((project) =>{
-          const imageProps = useNextSanityImage(
+          const imageProps = nextSanityImage(
             client,
             project.imgUrl
           )
