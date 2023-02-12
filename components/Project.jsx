@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from '../styles/Projects.module.scss'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
-import { urlFor } from '../lib/client';
 import Image from 'next/image'
 
 const Project = ({project, handleShowModal, imageProps}) => {

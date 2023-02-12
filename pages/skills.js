@@ -10,6 +10,7 @@ const Skills = ({skills}) => {
   const [modalDesc, setModalDesc]= useState('')
   const [modalTitle, setModalTitle] = useState('')
   const nextSanityImage = useNextSanityImage;
+  
   const handleShowSkillModal = (skill_id)=>{
     const currentSkill = skills.find((skill)=>skill._id === skill_id)
     setModalDesc(currentSkill.description)
@@ -20,6 +21,7 @@ const Skills = ({skills}) => {
   return (
     <>
       <h1><span>My Skills</span></h1>
+      <h4 style={{marginTop:"20px"}}>click on each skill to view description</h4>
       { showSkillModal && 
         <Modal title={modalTitle}
                description={modalDesc}
@@ -47,6 +49,7 @@ const Skills = ({skills}) => {
           )
         })}
         </div>
+        
       </div>
     </>
   )
