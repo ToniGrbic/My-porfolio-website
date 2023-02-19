@@ -3,9 +3,9 @@ import styles from '../styles/Projects.module.scss'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import Image from 'next/image'
 
-const Project = ({project, handleShowModal, imageProps}) => {
+const Project = ({project, handleShowModal, imageProps, key}) => {
   return (
-    <div className={styles.app__project_item}>
+    <div className={styles.app__project_item} key={key}>
             
             <div className={`${styles.app__project_img} app__flex`}>
               <Image {...imageProps} 
