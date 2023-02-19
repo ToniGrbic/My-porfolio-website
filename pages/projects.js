@@ -8,6 +8,7 @@ const Projects = ({projects}) => {
   const [showProjectModal, setShowProjectModal] = useState(false)
   const [modalProject, setModalProject] = useState({})
   const nextSanityImage = useNextSanityImage
+
   const handleShowModal = (projectId)=>{
     const currentProject = projects.find((project)=> project._id === projectId)
 
@@ -15,6 +16,7 @@ const Projects = ({projects}) => {
     setModalProject({ title, description, projectLink, codeLink, tags })
     setShowProjectModal(true)
   }
+  
   return (
     <>
     <h1><span>My Projects</span></h1>
@@ -34,7 +36,6 @@ const Projects = ({projects}) => {
             return (
                   <Project key={project._Id}
                       imageProps={imageProps}
-                      
                       project={project} 
                       handleShowModal={handleShowModal}
                   />)
