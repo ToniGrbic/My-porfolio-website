@@ -1,3 +1,12 @@
+@mixin fixed_element{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height:100vh;
+}
+
+
 .app__navbar {
     width:100%;
     height:3rem;
@@ -80,35 +89,35 @@
       cursor:pointer;
       
     }
+    
   
     div {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 5;
-      padding: 1rem 2rem 1rem 1rem;
-  
-      width: 100%;
-      height: 100vh;
-      animation-name: widthIncrease;
-      animation-duration: 1.3s;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      flex-direction: column;
       
-      background-color: var(--gray-navbar-color);
-      background-size: cover;
-      background-repeat: repeat;
-  
-      svg {
-        width: 35px;
-        height: 35px;
-        color: var(--red-color);
-        margin: 0.5rem 1rem;
-        cursor:pointer;
-      }
+      z-index:2;
+      @include fixed_element;
+      width:100%;
+      
+      background-color: rgba(0, 0, 0,0.9);
+     div{
+        @include fixed_element;
+        z-index: 5;
+        padding: 2rem 1rem 0rem 0rem;
+        width: 70%;
+        animation-name: widthIncrease;
+        animation-duration: 1s;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        flex-direction: column;
+        background-color: var(--gray-navbar-color);
+
+        svg {
+          width: 35px;
+          height: 35px;
+          color: var(--red-color);
+          margin: 0.5rem 1rem;
+          cursor:pointer;
+        }
       
       ul {
         list-style: none;
@@ -119,7 +128,7 @@
   
         display: flex;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
         flex-direction: column;
   
         li {
@@ -144,12 +153,12 @@
       @media screen and (min-width: 900px) {
         display: none;
       }
-    }
+    
   
     @media screen and (min-width: 900px) {
       display: none;
     }
-  }
+  }}}
 
   .app__navbar_menulink_color{
     color:var(--red-color) !important;
@@ -181,7 +190,7 @@
   from {
     width:0%;
   } to {
-    width:100%
+    width:70%
   }
 }
 

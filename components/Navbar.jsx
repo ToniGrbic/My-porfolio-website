@@ -9,12 +9,13 @@ const Navbar = () => {
   const [currentLink, setCurrentLink] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  useEffect(()=>{
-    const url = window.location.href.slice(8) // url witout "https://"
-    const currentPage = url.slice(url.indexOf("/")+1) //current route
-    localStorage.setItem("currentPage", currentPage)
-    setCurrentLink(localStorage.getItem("currentPage"))
-  },[])
+  useEffect(() => {
+    const url = window.location.href.slice(8); // url witout "https://"
+    const currentPage = url.slice(url.indexOf("/") + 1); //current route
+    console.log(currentPage)
+    localStorage.setItem("currentPage", currentPage);
+    setCurrentLink(localStorage.getItem("currentPage"));
+  }, []);
 
   const handleNavbarClick = (link) => {
     setCurrentLink(link);
@@ -68,6 +69,8 @@ const Navbar = () => {
       <div className={styles.app__navbar_menu}>
         <HiMenuAlt4 onClick={() => setToggle(true)} />
         {toggle && (
+          <>
+          <div>
           <div>
             <HiX onClick={() => setToggle(false)} />
 
@@ -93,6 +96,8 @@ const Navbar = () => {
               })}
             </ul>
           </div>
+          </div>
+          </>
         )}
       </div>
     </nav>
