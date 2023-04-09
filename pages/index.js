@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react'
 import {client} from '../lib/client'
-
-const MILISEC_IN_YEAR = 31556952000
-const YEARS_IN_100_MILISEC = 1/315569520
-const DATE_OF_BIRTH = '2001/8/31'
+import { MILISEC_IN_YEAR, YEARS_IN_100_MILISEC, DATE_OF_BIRTH } from '../lib/constants'
 
 const getAge = ()=>{
     let currentTime = new Date().getTime()
     let birthTime = new Date(DATE_OF_BIRTH).getTime()
-    let ageInMilisecs = currentTime - birthTime
-    let ageInYears = ageInMilisecs / MILISEC_IN_YEAR
-    
-    return ageInYears
+    return (currentTime - birthTime) / MILISEC_IN_YEAR;
 }
 
 export default function Home({About}){
@@ -33,8 +27,12 @@ export default function Home({About}){
       }
   },[])
 
-  if(isLoading){
-    return <><h1>Loading...</h1></>
+  if (isLoading) {
+    return (
+      <>
+        <h1>Loading...</h1>
+      </>
+    );
   }
   return (
     <>
