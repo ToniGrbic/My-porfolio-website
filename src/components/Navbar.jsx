@@ -11,8 +11,8 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    const url = window.location.href.slice(8); // url witout "https://"
-    const currentPage = url.slice(url.indexOf("/") + 1); //current route
+    const url = window.location.href.slice(8);
+    const currentPage = url.slice(url.indexOf("/") + 1);
 
     localStorage.setItem("currentPage", currentPage);
     setCurrentLink(localStorage.getItem("currentPage"));
