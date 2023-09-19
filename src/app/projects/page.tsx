@@ -3,8 +3,8 @@ import Projects from "./projects";
 
 const getProjects = async () => {
   const query = '*[_type == "works"]';
-  const projects = await client.fetch(query);
-  return projects;
+  return await client.fetch(query);
+  
 };
 
 export default async function Page() {

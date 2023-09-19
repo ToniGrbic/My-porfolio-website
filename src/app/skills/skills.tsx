@@ -7,12 +7,14 @@ import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
 
 const Skills = ({ skills }) => {
-  const [showSkillModal, setShowSkillModal] = useState(false);
-  const [modalDesc, setModalDesc] = useState("");
-  const [modalTitle, setModalTitle] = useState("");
+  const [showSkillModal, setShowSkillModal] = useState<boolean>(false);
+  const [modalDesc, setModalDesc] = useState<string>("");
+  const [modalTitle, setModalTitle] = useState<string>("");
   const nextSanityImage = useNextSanityImage;
 
-  const handleShowSkillModal = (skill_id) => {
+  type NextSanityImage = ReturnType<typeof useNextSanityImage>;
+
+  const handleShowSkillModal = (skill_id: string) => {
     const currentSkill = skills.find((skill) => skill._id === skill_id);
     setModalDesc(currentSkill.description);
     setModalTitle(currentSkill.name);
@@ -31,7 +33,10 @@ const Skills = ({ skills }) => {
       <div className={styles.app__skills_container}>
         <div className={styles.app__skills_list}>
           {skills?.map((skill) => {
-            const imageProps: any = nextSanityImage(client, skill.icon);
+            const imageProps: NextSanityImage = nextSanityImage(
+              client,
+              skill.icon
+            );
             return (
               <div
                 className={`${styles.app__skills_item} app__flex`}
@@ -40,7 +45,7 @@ const Skills = ({ skills }) => {
               >
                 <div className="app__flex">
                   <Image
-                    {...imageProps}
+                    {...imageProps!}
                     width={50}
                     height={50}
                     alt={skill.name}

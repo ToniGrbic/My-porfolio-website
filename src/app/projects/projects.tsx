@@ -6,15 +6,16 @@ import { useNextSanityImage } from "next-sanity-image";
 import { client } from "../../lib/client";
 
 const Projects = ({ projects }) => {
-  const [showProjectModal, setShowProjectModal] = useState(false);
-  const [modalProject, setModalProject] = useState({});
+  
+  const [showProjectModal, setShowProjectModal] = useState<boolean>(false);
+  const [modalProject, setModalProject] = useState<Object>({});
   const nextSanityImage = useNextSanityImage;
 
   const handleShowModal = (projectId: string) => {
     const currentProject = projects.find(
       (project) => project._id === projectId
     );
-
+    //console.log(projects);
     const { title, description, projectLink, codeLink, tags } = currentProject;
     setModalProject({ title, description, projectLink, codeLink, tags });
     setShowProjectModal(true);

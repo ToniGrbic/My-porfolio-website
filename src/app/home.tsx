@@ -14,16 +14,16 @@ const getAge = () => {
 };
 
 export default function Home({ about }) {
-  const [Age, setAge] = useState(0);
-  const [showAbout, setShowAbout] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [Age, setAge] = useState<number>(0);
+  const [showAbout, setShowAbout] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const currentAge = getAge();
     setAge(currentAge);
 
     const intervalId = setInterval(() => {
-      setAge((age: number) => age + YEARS_IN_100_MILISEC);
+      setAge((age) => age + YEARS_IN_100_MILISEC);
     }, 100);
 
     setIsLoading(false);
@@ -39,7 +39,9 @@ export default function Home({ about }) {
   return (
     <>
       <div className="descriptionDiv">
-        <h1>Hello my name is <span>{about.name}</span></h1>
+        <h1>
+          Hello my name is <span>{about.name}</span>
+        </h1>
         <h2>{about.description}</h2>
         <h2>{Age.toFixed(8)} years old</h2>
       </div>

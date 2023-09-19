@@ -4,8 +4,7 @@ import React from "react";
 
 async function getProfile() {
   const query = '*[_type == "about"]';
-  const about = await client.fetch(query);
-  return about[0];
+  return (await client.fetch(query))[0];
 }
 
 export default async function Page() {

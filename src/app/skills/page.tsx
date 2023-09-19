@@ -4,12 +4,12 @@ import { client } from "../../lib/client";
 
 async function getSkills() {
   const query = '*[_type == "skills"]';
-  const skills = await client.fetch(query);
-  return skills;
+  return await client.fetch(query);
 }
 
-const Page = async () => {
+export default async function Page(){
   const skills = await getSkills();
+
   return (
     <>
       <h1>
@@ -23,4 +23,3 @@ const Page = async () => {
   );
 };
 
-export default Page;

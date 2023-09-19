@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/lib/client.js", "src/lib/constants.js"  ],
   "exclude": [
     "node_modules"
   ]
