@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import {client} from '../lib/client'
+import { client} from '../lib/client'
 import { MILISEC_IN_YEAR, YEARS_IN_100_MILISEC, DATE_OF_BIRTH } from '../lib/constants'
 
 const getAge = ()=>{
@@ -16,11 +16,12 @@ export default function Home({About}){
   useEffect(()=>{
      const currentAge = getAge()
      setAge(currentAge)
-     setIsLoading(false)
-    
+     
      const intervalId = setInterval(()=>{
        setAge(age=>age + YEARS_IN_100_MILISEC)
      },100)
+
+     setIsLoading(false)
 
      return () => {
         clearInterval(intervalId);

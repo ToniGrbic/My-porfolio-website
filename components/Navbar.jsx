@@ -12,7 +12,7 @@ const Navbar = () => {
   useEffect(() => {
     const url = window.location.href.slice(8); // url witout "https://"
     const currentPage = url.slice(url.indexOf("/") + 1); //current route
-    console.log(currentPage)
+
     localStorage.setItem("currentPage", currentPage);
     setCurrentLink(localStorage.getItem("currentPage"));
   }, []);
@@ -36,25 +36,22 @@ const Navbar = () => {
           {links?.map((link) => {
             return (
               <li key={`link-${link}`}>
-                <Link href={`/${link}`}>
-                  <a
-                    className={`${styles.app__navbar_link}
-                              ${
-                                currentLink === link
-                                  ? styles.app__navbar_link_color
-                                  : ""
-                              }`}
-                    onClick={() => handleNavbarClick(link)}
-                  >
-                    {link === "" ? "home" : link}
-                    <div
-                      className={
-                        currentLink === link
-                          ? `${styles.app__navbar_link_underline}`
-                          : ""
-                      }
-                    ></div>
-                  </a>
+                <Link
+                  href={`/${link}`}
+                  onClick={() => handleNavbarClick(link)}
+                  className={`${styles.app__navbar_link}
+                     ${
+                       currentLink === link ? styles.app__navbar_link_color : ""
+                     }`}
+                >
+                  {link === "" ? "home" : link}
+                  <div
+                    className={
+                      currentLink === link
+                        ? `${styles.app__navbar_link_underline}`
+                        : ""
+                    }
+                  />
                 </Link>
               </li>
             );
@@ -70,33 +67,32 @@ const Navbar = () => {
         <HiMenuAlt4 onClick={() => setToggle(true)} />
         {toggle && (
           <>
-          <div>
-          <div>
-            <HiX onClick={() => setToggle(false)} />
-
-            <ul>
-              <h3>portfolio</h3>
-              {links.map((link) => {
-                return (
-                  <li key={link}>
-                    <Link href={`/${link}`} key={`link-${link}`}>
-                      <a
-                        onClick={() => handleMenuClick(link)}
-                        className={
-                          currentLink === link
-                            ? styles.app__navbar_menulink_color
-                            : ""
-                        }
-                      >
-                        {link === "" ? "home" : link}
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          </div>
+            <div>
+              <div>
+                <HiX onClick={() => setToggle(false)} />
+                <ul>
+                  <h3>portfolio</h3>
+                  {links.map((link) => {
+                    return (
+                      <li key={link}>
+                        <Link
+                          href={`/${link}`}
+                          key={`link-${link}`}
+                          onClick={() => handleMenuClick(link)}
+                          className={
+                            currentLink === link
+                              ? styles.app__navbar_menulink_color
+                              : ""
+                          }
+                        >
+                          {link === "" ? "home" : link}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
           </>
         )}
       </div>

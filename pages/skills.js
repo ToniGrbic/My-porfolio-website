@@ -4,8 +4,8 @@ import styles from '../styles/Skills.module.scss'
 import { Modal} from '../components'
 import Image from 'next/image'
 import { useNextSanityImage } from 'next-sanity-image'
+
 const Skills = ({skills}) => {
-  
   const [showSkillModal, setShowSkillModal] = useState(false)
   const [modalDesc, setModalDesc]= useState('')
   const [modalTitle, setModalTitle] = useState('')
@@ -42,14 +42,14 @@ const Skills = ({skills}) => {
                       <Image {...imageProps}
                              width={50}
                              height={50}
-                             alt={skill.name}/>
+                             alt={skill.name}
+                      />
                       <p>{skill.name}</p>
                   </div>
             </div>
           )
         })}
         </div>
-        
       </div>
     </>
   )
