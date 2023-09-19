@@ -53,11 +53,9 @@ a {
   flex-direction: column;
   color: white;
   padding-top: 50px;
-  h1 {
-    span {
-      font-family: handScript;
-      font-size: 3.5rem;
-    }
+  h1 span {
+    font-family: handScript;
+    font-size: 3.5rem;
   }
 }
 .descriptionDiv {

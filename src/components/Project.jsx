@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "../styles/Projects.module.scss";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
