@@ -79,7 +79,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--secondary-color);
+
   @media screen and (min-width: 900px) {
     display: none;
   }
@@ -88,6 +88,11 @@
     height: 70%;
     color: white;
     cursor: pointer;
+    transition: 200ms ease;
+    &:hover {
+      height: 35px;
+      width: 35px;
+    }
   }
 
   div {
@@ -163,13 +168,14 @@
   width: 200px;
   display: flex;
   justify-content: space-around;
+
   svg {
     background-color: black;
     border-radius: 50%;
     border: 2px black solid;
     height: 30px;
     width: 30px;
-    transition: 200ms ease;
+    transition: 200ms ease-in-out;
     &:hover {
       height: 35px;
       width: 35px;

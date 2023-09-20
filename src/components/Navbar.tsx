@@ -1,10 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import styles from "../styles/Navbar.module.scss";
-import { HiMenuAlt4, HiX } from "react-icons/hi";
-import { SocialLinks } from ".";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+
+import styles from "../styles/Navbar.module.scss";
+import { HiMenu, HiX } from "react-icons/hi";
+import { SocialLinks } from ".";
 
 const Navbar = () => {
   const links: string[] = ["", "projects", "skills"];
@@ -14,7 +15,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const currentPage = pathname.slice(1);
-    localStorage.setItem("currentPage", currentPage);
     setCurrentLink(currentPage);
   }, []);
 
@@ -65,36 +65,34 @@ const Navbar = () => {
       </div>
 
       <div className={styles.app__navbar_menu}>
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
+        <HiMenu onClick={() => setToggle(true)} />
         {toggle && (
-          <>
+          <div>
             <div>
-              <div>
-                <HiX onClick={() => setToggle(false)} />
-                <ul>
-                  <h3>portfolio</h3>
-                  {links.map((link) => {
-                    return (
-                      <li key={link}>
-                        <Link
-                          href={`/${link}`}
-                          key={`link-${link}`}
-                          onClick={() => handleMenuClick(link)}
-                          className={
-                            currentLink === link
-                              ? styles.app__navbar_menulink_color
-                              : ""
-                          }
-                        >
-                          {link === "" ? "home" : link}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
+              <HiX onClick={() => setToggle(false)} />
+              <ul>
+                <h3>portfolio</h3>
+                {links.map((link) => {
+                  return (
+                    <li key={link}>
+                      <Link
+                        href={`/${link}`}
+                        key={`link-${link}`}
+                        onClick={() => handleMenuClick(link)}
+                        className={
+                          currentLink === link
+                            ? styles.app__navbar_menulink_color
+                            : ""
+                        }
+                      >
+                        {link === "" ? "home" : link}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-          </>
+          </div>
         )}
       </div>
     </nav>
