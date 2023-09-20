@@ -4,7 +4,7 @@ import styles from "../styles/Footer.module.scss";
 import { SocialLinks } from "./";
 
 const Footer = () => {
-  const [year, setYear] = useState < string > "";
+  const [year, setYear] = useState<string>("");
 
   useEffect(() => {
     const currentYear = new Date().getFullYear().toString();
