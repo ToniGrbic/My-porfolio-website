@@ -4,19 +4,19 @@ import Link from "next/link";
 import styles from "../styles/Navbar.module.scss";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { SocialLinks } from "./";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const links = ["", "projects", "skills"];
-  const [currentLink, setCurrentLink] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [currentLink, setCurrentLink] = useState<string>("");
+  const [toggle, setToggle] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const url = window.location.href.slice(8);
-    const currentPage = url.slice(url.indexOf("/") + 1);
-
+    const currentPage = pathname.slice(1);
     localStorage.setItem("currentPage", currentPage);
-    setCurrentLink(localStorage.getItem("currentPage"));
-  }, []);
+    setCurrentLink(currentPage);
+  }, [pathname]);
 
   const handleNavbarClick = (link) => {
     setCurrentLink(link);
@@ -39,7 +39,7 @@ const Navbar = () => {
               <li key={`link-${link}`}>
                 <Link
                   href={`/${link}`}
-                  onClick={() => handleNavbarClick(link)}
+                  onClick={(link) => handleNavbarClick(link)}
                   className={`${styles.app__navbar_link}
                      ${
                        currentLink === link ? styles.app__navbar_link_color : ""

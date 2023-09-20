@@ -6,13 +6,13 @@ import { Modal } from "../../components";
 import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
 
+export type NextSanityImage = ReturnType<typeof useNextSanityImage>;
+
 const Skills = ({ skills }) => {
   const [showSkillModal, setShowSkillModal] = useState<boolean>(false);
   const [modalDesc, setModalDesc] = useState<string>("");
   const [modalTitle, setModalTitle] = useState<string>("");
   const nextSanityImage = useNextSanityImage;
-
-  type NextSanityImage = ReturnType<typeof useNextSanityImage>;
 
   const handleShowSkillModal = (skill_id: string) => {
     const currentSkill = skills.find((skill) => skill._id === skill_id);

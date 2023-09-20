@@ -14,7 +14,7 @@ const getAge = () => {
 };
 
 export default function Home({ about }) {
-  const [Age, setAge] = useState<number>(0);
+  const [age, setAge] = useState<number>(0);
   const [showAbout, setShowAbout] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -43,7 +43,7 @@ export default function Home({ about }) {
           Hello my name is <span>{about.name}</span>
         </h1>
         <h2>{about.description}</h2>
-        <h2>{Age.toFixed(8)} years old</h2>
+        <h2>{age.toFixed(8)} years old</h2>
       </div>
       <button
         onClick={() => setShowAbout((prev) => !prev)}

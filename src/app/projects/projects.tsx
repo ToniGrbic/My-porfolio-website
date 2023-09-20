@@ -4,9 +4,9 @@ import styles from "../../styles/Projects.module.scss";
 import { Modal, Project } from "../../components";
 import { useNextSanityImage } from "next-sanity-image";
 import { client } from "../../lib/client";
+import { NextSanityImage } from "../skills/skills";
 
 const Projects = ({ projects }) => {
-  
   const [showProjectModal, setShowProjectModal] = useState<boolean>(false);
   const [modalProject, setModalProject] = useState<Object>({});
   const nextSanityImage = useNextSanityImage;
@@ -15,7 +15,7 @@ const Projects = ({ projects }) => {
     const currentProject = projects.find(
       (project) => project._id === projectId
     );
-    //console.log(projects);
+
     const { title, description, projectLink, codeLink, tags } = currentProject;
     setModalProject({ title, description, projectLink, codeLink, tags });
     setShowProjectModal(true);
@@ -28,7 +28,11 @@ const Projects = ({ projects }) => {
       )}
 
       {projects?.map((project) => {
-        const imageProps = nextSanityImage(client, project.imgUrl);
+        const imageProps = nextSanityImage(
+          client,
+          project.imgUrl
+        ) satisfies NextSanityImage;
+
         return (
           <Project
             key={project._Id}

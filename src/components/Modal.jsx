@@ -3,12 +3,7 @@ import { AiFillEye, AiFillGithub } from "react-icons/ai";
 
 const Modal = (props) => {
   const {
-    description,
-    title,
-    tags,
-    codeLink,
-    projectLink,
-    setShowModal
+    description, title, tags, codeLink, projectLink, setShowModal
   } = props
 
   return (
