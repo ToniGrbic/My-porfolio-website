@@ -28,15 +28,15 @@ const Projects = ({ projects }) => {
       )}
 
       {projects?.map((project) => {
-        const imageProps = nextSanityImage(
+        const imageProps: NextSanityImage = nextSanityImage(
           client,
           project.imgUrl
-        ) satisfies NextSanityImage;
+        );
 
         return (
           <Project
             key={project._Id}
-            imageProps={imageProps}
+            imageProps={imageProps!}
             project={project}
             handleShowModal={handleShowModal}
           />

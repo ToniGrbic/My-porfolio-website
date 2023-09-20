@@ -1,3 +1,0 @@
-export const MILISEC_IN_YEAR = 31556952000;
-export const YEARS_IN_100_MILISEC = 1 / 315569520;
-export const DATE_OF_BIRTH = "2001/8/31";

@@ -11,9 +11,7 @@ export default async function Page() {
   const projects = await getProjects();
   return (
     <>
-      <h1>
-        <span>My Projects</span>
-      </h1>
+      <h1 className="projectsSkills">My Projects</h1>
       <Projects projects={projects} />
     </>
   );

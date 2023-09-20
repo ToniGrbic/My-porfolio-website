@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import React from "react";
+import localFont from "next/font/local";
 import {
   MILISEC_IN_YEAR,
   YEARS_IN_100_MILISEC,
@@ -12,6 +13,8 @@ const getAge = () => {
   let birthTime = new Date(DATE_OF_BIRTH).getTime();
   return (currentTime - birthTime) / MILISEC_IN_YEAR;
 };
+
+const myFont = localFont({ src: "../assets/hand_script.woff2" });
 
 export default function Home({ about }) {
   const [age, setAge] = useState<number>(0);
@@ -40,7 +43,8 @@ export default function Home({ about }) {
     <>
       <div className="descriptionDiv">
         <h1>
-          Hello my name is <span>{about.name}</span>
+          Hello my name is
+          <span className={myFont.className}>{about.name}</span>
         </h1>
         <h2>{about.description}</h2>
         <h2>{age.toFixed(8)} years old</h2>

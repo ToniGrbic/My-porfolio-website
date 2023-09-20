@@ -7,19 +7,16 @@ async function getSkills() {
   return await client.fetch(query);
 }
 
-export default async function Page(){
+export default async function Page() {
   const skills = await getSkills();
 
   return (
     <>
-      <h1>
-        <span>My Skills</span>
-      </h1>
+      <h1 className="projectsSkills">My Skills</h1>
       <h4 style={{ marginTop: "20px" }}>
         click on each skill to view description
       </h4>
       <Skills skills={skills} />
     </>
   );
-};
-
+}
