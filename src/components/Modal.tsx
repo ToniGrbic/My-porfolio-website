@@ -1,8 +1,9 @@
-import React from "react";
+import React, { ReactPropTypes } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 
 const Modal = (props) => {
-  const { description, title, tags, codeLink, projectLink, setShowModal } = props;
+  const { description, title, tags, codeLink, projectLink, setShowModal } =
+    props;
 
   return (
     <div className="app__modal">

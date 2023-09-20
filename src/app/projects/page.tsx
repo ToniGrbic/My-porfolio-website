@@ -4,7 +4,6 @@ import Projects from "./projects";
 const getProjects = async () => {
   const query = '*[_type == "works"]';
   return await client.fetch(query);
-  
 };
 
 export default async function Page() {
