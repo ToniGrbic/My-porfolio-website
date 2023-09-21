@@ -4,23 +4,19 @@ import React, { useRef } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 
 const Modal = (props) => {
-  const { 
-    description, title, tags, codeLink, projectLink, setShowModal 
-  } = props;
+  const { description, title, tags, codeLink, projectLink, setShowModal } = props;
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = () => {
     setShowModal(false);
   };
-  
+
   useClickOutside(wrapperRef, handleClickOutside);
 
   return (
-    <div className="app__modal" >
+    <div className="app__modal">
       <div className="app__modalContent" ref={wrapperRef}>
-        <span className="app__close" 
-              onClick={() => setShowModal(false)}
-        >
+        <span className="app__close" onClick={() => setShowModal(false)}>
           &times;
         </span>
         <h2>{title}</h2>
@@ -30,8 +26,8 @@ const Modal = (props) => {
           <div>
             <h3>Tech and tools used:</h3>
             <ul>
-              {tags.map((tag, index) => {
-                return <li key={index}>{tag} </li>;
+              {tags.map((tag: string, index: number) => {
+                return <li key={index}>{tag}</li>;
               })}
             </ul>
             {codeLink && (
