@@ -4,28 +4,18 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import styles from "../styles/Navbar.module.scss";
-import { HiMenu, HiX } from "react-icons/hi";
 import { SocialLinks } from ".";
+import SideBar from "./SideBar";
 
 const Navbar = () => {
   const links: string[] = ["", "projects", "skills"];
   const [currentLink, setCurrentLink] = useState<string>("");
-  const [toggle, setToggle] = useState<boolean>(false);
   const pathname: string = usePathname();
 
   useEffect(() => {
     const currentPage = pathname.slice(1);
     setCurrentLink(currentPage);
   }, []);
-
-  const handleNavbarClick = (link: string) => {
-    setCurrentLink(link);
-  };
-
-  const handleMenuClick = (link: string) => {
-    setCurrentLink(link);
-    setToggle(false);
-  };
 
   return (
     <nav className={styles.app__navbar}>
@@ -39,7 +29,7 @@ const Navbar = () => {
               <li key={`link-${link}`}>
                 <Link
                   href={`/${link}`}
-                  onClick={() => handleNavbarClick(link)}
+                  onClick={() => setCurrentLink(link)}
                   className={`${styles.app__navbar_link}
                      ${
                        currentLink === link ? styles.app__navbar_link_color : ""
@@ -65,35 +55,11 @@ const Navbar = () => {
       </div>
 
       <div className={styles.app__navbar_menu}>
-        <HiMenu onClick={() => setToggle(true)} />
-        {toggle && (
-          <div>
-            <div>
-              <HiX onClick={() => setToggle(false)} />
-              <ul>
-                <h3>portfolio</h3>
-                {links.map((link) => {
-                  return (
-                    <li key={link}>
-                      <Link
-                        href={`/${link}`}
-                        key={`link-${link}`}
-                        onClick={() => handleMenuClick(link)}
-                        className={
-                          currentLink === link
-                            ? styles.app__navbar_menulink_color
-                            : ""
-                        }
-                      >
-                        {link === "" ? "home" : link}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        )}
+        <SideBar
+          links={links}
+          currentLink={currentLink}
+          setCurrentLink={setCurrentLink}
+        />
       </div>
     </nav>
   );

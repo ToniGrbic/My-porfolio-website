@@ -1,14 +1,21 @@
-import React, { ReactPropTypes } from "react";
+"use client";
+import useClickOutside from "../hooks/custom/useClickOutside";
+import React, { useRef } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 
 const Modal = (props) => {
-  const { description, title, tags, codeLink, projectLink, setShowModal } =
-    props;
-
+  const { 
+    description, title, tags, codeLink, projectLink, setShowModal 
+  } = props;
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useClickOutside(wrapperRef, setShowModal, false);
+  
   return (
-    <div className="app__modal">
-      <div className="app__modalContent">
-        <span className="app__close" onClick={() => setShowModal(false)}>
+    <div className="app__modal" >
+      <div className="app__modalContent" ref={wrapperRef}>
+        <span className="app__close" 
+              onClick={() => setShowModal(false)}
+        >
           &times;
         </span>
         <h2>{title}</h2>
