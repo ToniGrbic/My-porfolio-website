@@ -1,15 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Footer.module.scss";
 import { SocialLinks } from ".";
 
 const Footer = () => {
-  const [year, setYear] = useState<string>("");
-
-  useEffect(() => {
-    const currentYear = new Date().getFullYear().toString();
-    setYear(currentYear);
-  }, []);
+  const [year] = useState<string>(new Date().getFullYear().toString());
 
   return (
     <div className={styles.app__footer}>
