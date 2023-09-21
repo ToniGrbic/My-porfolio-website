@@ -8,8 +8,13 @@ const Modal = (props) => {
     description, title, tags, codeLink, projectLink, setShowModal 
   } = props;
   const wrapperRef = useRef<HTMLDivElement>(null);
-  useClickOutside(wrapperRef, setShowModal, false);
+
+  const handleClickOutside = () => {
+    setShowModal(false);
+  };
   
+  useClickOutside(wrapperRef, handleClickOutside);
+
   return (
     <div className="app__modal" >
       <div className="app__modalContent" ref={wrapperRef}>
