@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import React from "react";
+import Loading from "./loading";
 import localFont from "next/font/local";
 import {
   MILISEC_IN_YEAR,
@@ -37,8 +38,9 @@ export default function Home({ about }) {
   }, []);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
+
   return (
     <>
       <div className="descriptionDiv">
@@ -56,7 +58,7 @@ export default function Home({ about }) {
         Learn more
       </button>
       <div className={`about ${!showAbout ? "fade" : ""}`}>
-        <p>{about.paragraph} 😊</p>
+        <p>{about.paragraph}</p>
       </div>
     </>
   );

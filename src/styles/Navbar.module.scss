@@ -13,8 +13,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
-  background: rgb(138, 138, 138);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--gray-navbar-color-transparent);
   position: fixed;
   top: 0px;
   z-index: 2;
@@ -112,7 +111,7 @@
       justify-content: center;
       align-items: flex-end;
       flex-direction: column;
-      background-color: var(--gray-navbar-color);
+      background-color: var(--gray-navbar-color-transparent);
 
       svg {
         width: 35px;
@@ -136,7 +135,7 @@
 
         li {
           margin: 1rem;
-                                
+
           a {
             color: white;
             text-decoration: none;
@@ -153,9 +152,9 @@
       }
 
       @media screen and (min-width: 900px) {
-        display: none;                                             
+        display: none;
       }
-    }                                                    
+    }
   }
 }
 

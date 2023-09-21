@@ -21,8 +21,9 @@ body {
   --black-color: #030303;
   --gray-color: rgb(194, 194, 194);
   --blue-color: #2a323b;
-  --red-color: #9e2b23;
-  --gray-navbar-color: rgb(125, 125, 125);
+  --red-color: #dc5a63;
+  --gray-navbar-color: rgb(83, 83, 83);
+  --gray-navbar-color-transparent: rgba(83, 83, 83, 0.9);
   --dark-color: rgb(53, 53, 53);
 }
 
@@ -64,6 +65,7 @@ a {
 .descriptionDiv {
   width: 90%;
 }
+
 .about {
   width: 80%;
   margin-bottom: 9rem;
@@ -220,4 +222,34 @@ a {
     margin: 30% auto;
     font-size: 0.95rem;
   }
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    trasform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader div {
+  position: absolute;
+  animation: loader-spin 1s linear infinite;
+  width: 50px;
+  height: 50px;
+  top: 100px;
+  border-radius: 50%;
+  box-sizing: content-box;
+  box-shadow: 0 4px 0 0 var(--red-color);
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  backface-visibility: hidden;
 }
