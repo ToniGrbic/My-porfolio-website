@@ -4,11 +4,10 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import styles from "../styles/Navbar.module.scss";
-import { SocialLinks } from ".";
-import SideBar from "./SideBar";
+import { SocialLinks, SideBar } from ".";
 
 const Navbar = () => {
-  const links: string[] = ["", "projects", "skills"];
+  const links: string[] = ["", "projects", "skills", "experiences"];
   const [currentLink, setCurrentLink] = useState<string>("");
   const pathname: string = usePathname();
 
