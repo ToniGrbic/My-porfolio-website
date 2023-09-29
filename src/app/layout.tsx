@@ -9,7 +9,9 @@ export default function RootLayout({ children }) {
         <title>tonigrbic portfolio</title>
       </head>
       <body>
-        <Layout>{children}</Layout>
+        <Layout>
+          {children}
+        </Layout>
       </body>
     </html>
   );
