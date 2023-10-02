@@ -3,7 +3,7 @@ import { useEventListener } from "usehooks-ts";
 
 type Handler = (event: MouseEvent) => void;
 
-export default function useClickOutside<T extends HTMLElement = HTMLElement>(
+export default function useClickOutside<T extends HTMLElement>(
   ref: RefObject<T>,
   handler: Handler,
   mouseEvent: "mousedown" | "mouseup" = "mousedown"
@@ -12,9 +12,8 @@ export default function useClickOutside<T extends HTMLElement = HTMLElement>(
     const el = ref?.current;
 
     // Do nothing if clicking ref's element or descendent elements
-    if (!el || el.contains(event.target as Node)) {
+    if (!el || el.contains(event.target as Node)) 
       return;
-    }
 
     handler(event);
   });

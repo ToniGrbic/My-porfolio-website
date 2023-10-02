@@ -30,16 +30,15 @@ const Navbar = () => {
                   href={`/${link}`}
                   onClick={() => setCurrentLink(link)}
                   className={`${styles.app__navbar_link}
-                     ${
-                       currentLink === link ? styles.app__navbar_link_color : ""
+                    ${currentLink === link 
+                        ? styles.app__navbar_link_color : ""
                      }`}
                 >
                   {link === "" ? "home" : link}
                   <div
                     className={
                       currentLink === link
-                        ? `${styles.app__navbar_link_underline}`
-                        : ""
+                        ? `${styles.app__navbar_link_underline}` : ""
                     }
                   />
                 </Link>

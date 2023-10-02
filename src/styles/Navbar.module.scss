@@ -99,7 +99,7 @@
     @include fixed_element;
     width: 100%;
 
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     div {
       @include fixed_element;
       z-index: 5;

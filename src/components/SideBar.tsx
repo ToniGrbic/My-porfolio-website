@@ -38,8 +38,7 @@ const SideBar = ({ links, setCurrentLink, currentLink }) => {
                       onClick={() => handleMenuClick(link)}
                       className={
                         currentLink === link
-                          ? styles.app__navbar_menulink_color
-                          : ""
+                          ? styles.app__navbar_menulink_color : ""
                       }
                     >
                       {link === "" ? "home" : link}
