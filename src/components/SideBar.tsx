@@ -1,11 +1,17 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { Dispatch, SetStateAction, useRef, useState } from "react";
 import useClickOutside from "../hooks/custom/useClickOutside";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
 import styles from "../styles/Navbar.module.scss";
 
-const SideBar = ({ links, setCurrentLink, currentLink }) => {
+type SidebarProps = {
+  links: string[];
+  setCurrentLink: Dispatch<SetStateAction<string>>;
+  currentLink: string;
+};
+
+const SideBar = ({ links, currentLink, setCurrentLink }: SidebarProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [toggle, setToggle] = useState<boolean>(false);
 
@@ -38,7 +44,8 @@ const SideBar = ({ links, setCurrentLink, currentLink }) => {
                       onClick={() => handleMenuClick(link)}
                       className={
                         currentLink === link
-                          ? styles.app__navbar_menulink_color : ""
+                          ? styles.app__navbar_menulink_color
+                          : ""
                       }
                     >
                       {link === "" ? "home" : link}

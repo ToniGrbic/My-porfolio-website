@@ -9,7 +9,7 @@ import {
   DATE_OF_BIRTH,
 } from "../lib/constants";
 
-const getAge = () => {
+const getAge = (): number => {
   let currentTime = new Date().getTime();
   let birthTime = new Date(DATE_OF_BIRTH).getTime();
   return (currentTime - birthTime) / MILISEC_IN_YEAR;
@@ -29,7 +29,6 @@ export default function Home({ about }) {
     const intervalId = setInterval(() => {
       setAge((age) => age + YEARS_IN_100_MILISEC);
     }, 100);
-
     setIsLoading(false);
 
     return () => {
