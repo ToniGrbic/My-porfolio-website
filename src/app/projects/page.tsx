@@ -1,9 +1,13 @@
 import { client } from "../../lib/client";
 import Projects from "./projects";
+import { Works } from "../../schema-types";
 
-const getProjects = async () => {
+const getProjects = 
+async (): Promise<Works[]> => {
   const query = '*[_type == "works"]';
-  return await client.fetch(query);
+  return (
+    await client.fetch<Works[]>(query)
+  );
 };
 
 export default async function Page() {

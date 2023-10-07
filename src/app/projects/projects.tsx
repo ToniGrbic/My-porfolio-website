@@ -5,19 +5,40 @@ import { Modal, Project } from "../../components";
 import { useNextSanityImage } from "next-sanity-image";
 import { client } from "../../lib/client";
 import { NextSanityImage } from "../skills/skills";
+import { Works } from "../../schema-types";
 
-const Projects = ({ projects }) => {
+export type ModalObject = {
+  description: string;
+  title: string;
+  tags?: string[];
+  codeLink?: string;
+  projectLink?: string;
+};
+
+const Projects = ({ projects }: { projects: Works[] }) => {
   const [showProjectModal, setShowProjectModal] = useState<boolean>(false);
-  const [modalProject, setModalProject] = useState<Object>({});
+  const [modalProject, setModalProject] = useState<ModalObject>({
+    description: "",
+    title: "",
+    tags: [],
+    codeLink: "",
+    projectLink: "",
+  });
   const nextSanityImage = useNextSanityImage;
 
   const handleShowModal = (projectId: string) => {
     const currentProject = projects.find(
       (project) => project._id === projectId
-    );
-
+    ) as Works;
     const { title, description, projectLink, codeLink, tags } = currentProject;
-    setModalProject({ title, description, projectLink, codeLink, tags });
+
+    setModalProject({
+      title,
+      description,
+      projectLink,
+      codeLink,
+      tags,
+    });
     setShowProjectModal(true);
   };
 
@@ -35,8 +56,8 @@ const Projects = ({ projects }) => {
 
         return (
           <Project
-            key={project._Id}
-            imageProps={imageProps!}
+            key={project._id}
+            imageProps={imageProps}
             project={project}
             handleShowModal={handleShowModal}
           />

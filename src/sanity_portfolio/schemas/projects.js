@@ -7,11 +7,15 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "description",
       title: "Description",
       type: "string",
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "projectLink",
@@ -22,6 +26,8 @@ export default {
       name: "codeLink",
       title: "Code Link",
       type: "string",
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "imgUrl",
@@ -30,6 +36,8 @@ export default {
       options: {
         hotspot: true,
       },
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
 
     {
@@ -43,6 +51,8 @@ export default {
           type: "string",
         },
       ],
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

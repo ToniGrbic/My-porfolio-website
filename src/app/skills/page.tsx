@@ -1,10 +1,12 @@
 import React from "react";
-import Skills from "./skills";
+import SkillSection from "./skills";
+import { Skills } from  "../../schema-types"
 import { client } from "../../lib/client";
 
-async function getSkills() {
+async function getSkills()
+: Promise<Skills[]> {
   const query = '*[_type == "skills"]';
-  return await client.fetch(query);
+  return await client.fetch<Skills[]>(query);
 }
 
 export default async function Page() {
@@ -16,7 +18,7 @@ export default async function Page() {
       <h4 style={{ marginTop: "20px" }}>
         click on each skill to view description
       </h4>
-      <Skills skills={skills} />
+      <SkillSection skills={skills} />
     </>
   );
 }

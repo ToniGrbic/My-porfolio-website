@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "../../styles/Experiences.module.scss";
 import { client } from "../../lib/client";
+import { Experiences } from "../../schema-types"
 
-async function getExperiences() {
+async function getExperiences()
+: Promise<Experiences[]> {
   const query = '*[_type == "Experiences"] | order(_createdAt desc)';
-  return await client.fetch(query);
+  return (
+    await client.fetch<Experiences[]>(query)
+  );
 }
 
 const Page = async () => {

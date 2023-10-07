@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Loading from "./loading";
 import localFont from "next/font/local";
+import { About } from "../schema-types";
 import {
   MILISEC_IN_YEAR,
   YEARS_IN_100_MILISEC,
@@ -17,14 +18,13 @@ const getAge = (): number => {
 
 const myFont = localFont({ src: "../assets/hand_script.woff2" });
 
-export default function Home({ about }) {
+function Home({ about }: { about: About }) {
   const [age, setAge] = useState<number>(0);
   const [showAbout, setShowAbout] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const currentAge = getAge();
-    setAge(currentAge);
+    setAge(getAge());
 
     const intervalId = setInterval(() => {
       setAge((age) => age + YEARS_IN_100_MILISEC);
@@ -62,3 +62,4 @@ export default function Home({ about }) {
     </>
   );
 }
+export default Home;
