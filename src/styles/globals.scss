@@ -6,8 +6,18 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
   color: white;
   background: rgb(31, 31, 31);
   background-image: url("../assets/app_background_1280x720.webp");
@@ -21,7 +31,11 @@ body {
   --black-color: #030303;
   --gray-color: rgb(194, 194, 194);
   --blue-color: #2a323b;
-  --red-color: #dc5a63;
+  //--red-color: #dc5a63;
+  --red-color: #db444e;
+  --dark-red-color: #d72834;
+  --purple-color: rgb(138, 48, 135);
+  --dark-purple-color: rgb(97, 32, 95);
   --gray-navbar-color-menu: rgba(83, 83, 83, 0.9);
   --gray-navbar-color-transparent: rgba(83, 83, 83, 0.8);
   --dark-color: rgb(53, 53, 53);
@@ -124,19 +138,18 @@ a {
   height: 40px;
   padding: 0.6rem;
   border-radius: 5px;
-  border: 2px solid var(--secondary-color);
-  background-color: var(--secondary-color);
+  border: 2px solid var(--red-color);
+  background-color: var(--red-color);
   font-size: 1rem;
   transition: 500ms;
   color: white;
-}
-
-.openModalBtn {
   &:hover {
-    background-color: var(--blue-color);
+    background-color: var(--dark-red-color);
+    border-color: var(--dark-red-color);
     cursor: pointer;
   }
 }
+
 .app__modal {
   position: fixed;
   z-index: 1;
@@ -151,15 +164,17 @@ a {
   background-color: var(--gray-color);
   margin: 15% auto;
   padding: 20px;
-  border: 3px solid var(--secondary-color);
+  border: 3px solid var(--red-color);
   border-radius: 10px;
-  width: 60%;
+  width: 50%;
   color: black;
   padding: 30px;
   text-align: left;
   font-size: 1.1rem;
-  li,
   p {
+    margin: 7px 0px 7px 10px;
+  }
+  li {
     margin: 7px 0px 7px 30px;
   }
 }
