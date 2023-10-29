@@ -5,7 +5,7 @@ import { client } from "../../lib/client";
 import { Modal } from "../../components";
 import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
-import { Skills } from "../../schema-types"
+import { Skills } from "../../types/schema-types";
 
 export type NextSanityImage = ReturnType<typeof useNextSanityImage>;
 
@@ -16,8 +16,7 @@ const SkillSection = ({ skills }: { skills: Skills[] }) => {
   const nextSanityImage = useNextSanityImage;
 
   const handleShowSkillModal = (skill_id: string) => {
-    const currentSkill = 
-      skills.find((skill) => skill._id === skill_id)!;
+    const currentSkill = skills.find((skill) => skill._id === skill_id)!;
     setModalDesc(currentSkill.description);
     setModalTitle(currentSkill.name);
     setShowSkillModal(true);

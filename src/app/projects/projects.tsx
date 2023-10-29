@@ -5,7 +5,7 @@ import { Modal, Project } from "../../components";
 import { useNextSanityImage } from "next-sanity-image";
 import { client } from "../../lib/client";
 import { NextSanityImage } from "../skills/skills";
-import { Works } from "../../schema-types";
+import { Works } from "../../types/schema-types";
 
 export type ModalObject = {
   description: string;

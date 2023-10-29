@@ -1,10 +1,9 @@
 import React from "react";
 import SkillSection from "./skills";
-import { Skills } from  "../../schema-types"
+import { Skills } from "../../types/schema-types";
 import { client } from "../../lib/client";
 
-async function getSkills()
-: Promise<Skills[]> {
+async function getSkills(): Promise<Skills[]> {
   const query = '*[_type == "skills"]';
   return await client.fetch<Skills[]>(query);
 }

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Loading from "./loading";
 import localFont from "next/font/local";
-import { About } from "../schema-types";
+import { About } from "../types/schema-types";
 import {
   MILISEC_IN_YEAR,
   YEARS_IN_100_MILISEC,
