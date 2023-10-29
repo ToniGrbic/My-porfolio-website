@@ -18,7 +18,12 @@
   top: 0px;
   z-index: 2;
 }
-
+.app__icon_div {
+  display: flex;
+  h3 {
+    margin-left: 10px;
+  }
+}
 .app__navbar_links {
   @media screen and (max-width: 900px) {
     display: none;

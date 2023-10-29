@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "../styles/Navbar.module.scss";
 
 type SidebarProps = {
-  links: string[];
+  links: [string, string][];
   setCurrentLink: Dispatch<SetStateAction<string>>;
   currentLink: string;
 };
@@ -35,20 +35,20 @@ const SideBar = ({ links, currentLink, setCurrentLink }: SidebarProps) => {
             <HiX onClick={() => setToggle(false)} />
             <ul>
               <h3>portfolio</h3>
-              {links.map((link) => {
+              {links.map(([name, path]) => {
                 return (
-                  <li key={link}>
+                  <li key={name}>
                     <Link
-                      href={`/${link}`}
-                      key={`link-${link}`}
-                      onClick={() => handleMenuClick(link)}
+                      href={path}
+                      key={`link-${name}`}
+                      onClick={() => handleMenuClick(name)}
                       className={
-                        currentLink === link
+                        currentLink === name
                           ? styles.app__navbar_menulink_color
                           : ""
                       }
                     >
-                      {link === "" ? "home" : link}
+                      {name}
                     </Link>
                   </li>
                 );

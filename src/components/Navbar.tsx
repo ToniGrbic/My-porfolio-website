@@ -2,12 +2,26 @@
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
 import styles from "../styles/Navbar.module.scss";
 import { SocialLinks, SideBar } from ".";
+import Image from "next/image";
+import icon from "../assets/favicon-2.png";
 
+interface Links {
+  home: string;
+  projects: string;
+  skills: string;
+  experiences: string;
+}
 const Navbar = () => {
-  const links: string[] = ["", "projects", "skills", "experiences"];
+  const links: Links = {
+    home: "/",
+    projects: "/projects",
+    skills: "/skills",
+    experiences: "/experiences",
+  };
+  const linksArr: [string, string][] = Object.entries(links);
+
   const [currentLink, setCurrentLink] = useState<string>("");
   const pathname: string = usePathname();
 
@@ -18,27 +32,29 @@ const Navbar = () => {
 
   return (
     <nav className={styles.app__navbar}>
-      <div>
+      <div className={styles.app__icon_div} aria-hidden="true">
+        <Image src={icon} alt="icon" width={32} height={32} />
         <h3>portfolio</h3>
       </div>
       <div>
         <ul className={styles.app__navbar_links}>
-          {links?.map((link) => {
+          {linksArr.map(([name, path]) => {
             return (
-              <li key={`link-${link}`}>
+              <li key={`link-${name}`}>
                 <Link
-                  href={`/${link}`}
-                  onClick={() => setCurrentLink(link)}
+                  href={path}
+                  onClick={() => setCurrentLink(name)}
                   className={`${styles.app__navbar_link}
-                    ${currentLink === link 
-                        ? styles.app__navbar_link_color : ""
-                     }`}
+                    ${
+                      currentLink === name ? styles.app__navbar_link_color : ""
+                    }`}
                 >
-                  {link === "" ? "home" : link}
+                  {name}
                   <div
                     className={
-                      currentLink === link
-                        ? `${styles.app__navbar_link_underline}` : ""
+                      currentLink === name
+                        ? `${styles.app__navbar_link_underline}`
+                        : ""
                     }
                   />
                 </Link>
@@ -54,7 +70,7 @@ const Navbar = () => {
 
       <div className={styles.app__navbar_menu}>
         <SideBar
-          links={links}
+          links={linksArr}
           currentLink={currentLink}
           setCurrentLink={setCurrentLink}
         />
