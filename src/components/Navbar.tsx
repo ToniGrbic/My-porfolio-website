@@ -7,21 +7,14 @@ import { SocialLinks, SideBar } from ".";
 import Image from "next/image";
 import icon from "../assets/favicon-2.png";
 
-interface Links {
-  home: string;
-  projects: string;
-  skills: string;
-  experiences: string;
-}
 const Navbar = () => {
-  const links: Links = {
+  const links = {
     home: "/",
     projects: "/projects",
     skills: "/skills",
     experiences: "/experiences",
   };
   const linksArr: [string, string][] = Object.entries(links);
-
   const [currentLink, setCurrentLink] = useState<string>("");
   const pathname: string = usePathname();
 
