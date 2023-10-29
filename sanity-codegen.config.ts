@@ -3,7 +3,7 @@ const { defaultBabelOptions } = require("sanity-codegen/cli");
 
 const config: SanityCodegenConfig = {
   schemaPath: "./src/sanity_portfolio/schemas/schema.js",
-  outputPath: "./src/schema-types.ts",
+  outputPath: "./src/types/schema-types.ts",
 
   // NOTE: The CLI ships with a pre-configured babel config that shims out
   // the Sanity parts system. This babel config does not read from any
