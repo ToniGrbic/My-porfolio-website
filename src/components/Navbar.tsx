@@ -26,8 +26,7 @@ const Navbar = () => {
   const pathname: string = usePathname();
 
   useEffect(() => {
-    const currentPage = pathname.slice(1);
-    setCurrentLink(currentPage);
+    setCurrentLink(pathname);
   }, []);
 
   return (
@@ -43,16 +42,16 @@ const Navbar = () => {
               <li key={`link-${name}`}>
                 <Link
                   href={path}
-                  onClick={() => setCurrentLink(name)}
+                  onClick={() => setCurrentLink(path)}
                   className={`${styles.app__navbar_link}
                     ${
-                      currentLink === name ? styles.app__navbar_link_color : ""
+                      currentLink === path ? styles.app__navbar_link_color : ""
                     }`}
                 >
                   {name}
                   <div
                     className={
-                      currentLink === name
+                      currentLink === path
                         ? `${styles.app__navbar_link_underline}`
                         : ""
                     }

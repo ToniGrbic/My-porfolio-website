@@ -41,9 +41,9 @@ const SideBar = ({ links, currentLink, setCurrentLink }: SidebarProps) => {
                     <Link
                       href={path}
                       key={`link-${name}`}
-                      onClick={() => handleMenuClick(name)}
+                      onClick={() => handleMenuClick(path)}
                       className={
-                        currentLink === name
+                        currentLink === path
                           ? styles.app__navbar_menulink_color
                           : ""
                       }
