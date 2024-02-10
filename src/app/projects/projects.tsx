@@ -1,11 +1,9 @@
 "use client";
-import React, { useState } from "react";
-import styles from "../../styles/Projects.module.scss";
-import { Modal, Project } from "../../components";
-import { useNextSanityImage } from "next-sanity-image";
-import { client } from "../../lib/client";
-import { NextSanityImage } from "../skills/skills";
-import { Works } from "../../types/schema-types";
+import React, { useState, useEffect } from "react";
+import styles from "@/styles/Projects.module.scss";
+import { Modal, Project } from "@/components";
+import { Works } from "@/types/schema-types";
+import Filter from "@/components/Filter";
 
 export type ModalObject = {
   description: string;
@@ -15,8 +13,19 @@ export type ModalObject = {
   projectLink?: string;
 };
 
+export const filterOptions = {
+  All: "All",
+  React: "ReactJS",
+  NextJS: "NextJS",
+  JavaScript: "JavaScript",
+  TypeScript: "TypeScript",
+};
+
 const Projects = ({ projects }: { projects: Works[] }) => {
+  const filters = Object.entries(filterOptions);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
   const [showProjectModal, setShowProjectModal] = useState<boolean>(false);
+  const [filteredProjects, setFilteredProjects] = useState<Works[]>(projects);
   const [modalProject, setModalProject] = useState<ModalObject>({
     description: "",
     title: "",
@@ -24,7 +33,13 @@ const Projects = ({ projects }: { projects: Works[] }) => {
     codeLink: "",
     projectLink: "",
   });
-  const nextSanityImage = useNextSanityImage;
+
+  useEffect(() => {
+    const filtered = projects.filter(
+      (project) => project.tags.includes(activeFilter) || activeFilter === "All"
+    );
+    setFilteredProjects(filtered);
+  }, [activeFilter]);
 
   const handleShowModal = (projectId: string) => {
     const currentProject = projects.find(
@@ -32,13 +47,7 @@ const Projects = ({ projects }: { projects: Works[] }) => {
     ) as Works;
     const { title, description, projectLink, codeLink, tags } = currentProject;
 
-    setModalProject({
-      title,
-      description,
-      projectLink,
-      codeLink,
-      tags,
-    });
+    setModalProject({ title, description, projectLink, codeLink, tags });
     setShowProjectModal(true);
   };
 
@@ -47,22 +56,22 @@ const Projects = ({ projects }: { projects: Works[] }) => {
       {showProjectModal && (
         <Modal {...modalProject} setShowModal={setShowProjectModal} />
       )}
-
-      {projects?.map((project) => {
-        const imageProps: NextSanityImage = nextSanityImage(
-          client,
-          project.imgUrl
-        );
-
-        return (
-          <Project
-            key={project._id}
-            imageProps={imageProps}
-            project={project}
-            handleShowModal={handleShowModal}
-          />
-        );
-      })}
+      <Filter
+        filters={filters}
+        setFilter={setActiveFilter}
+        activeFilter={activeFilter}
+      />
+      <div className={styles.app__projects}>
+        {filteredProjects.map((project) => {
+          return (
+            <Project
+              key={project._id}
+              project={project}
+              handleShowModal={handleShowModal}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

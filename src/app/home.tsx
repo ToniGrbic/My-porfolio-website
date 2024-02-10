@@ -1,14 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
-import React from "react";
-import Loading from "./loading";
+import React, { useState, useEffect } from "react";
 import localFont from "next/font/local";
-import { About } from "../types/schema-types";
+import Loading from "./loading";
+import type { About } from "@/types/schema-types";
 import {
   MILISEC_IN_YEAR,
   YEARS_IN_100_MILISEC,
   DATE_OF_BIRTH,
-} from "../lib/constants";
+} from "@/lib/constants";
 
 const getAge = (): number => {
   let currentTime = new Date().getTime();
@@ -19,16 +18,15 @@ const getAge = (): number => {
 const myFont = localFont({ src: "../assets/hand_script.woff2" });
 
 function Home({ about }: { about: About }) {
-  const [age, setAge] = useState<number>(0);
+  const [age, setAge] = useState<number>(getAge());
   const [showAbout, setShowAbout] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setAge(getAge());
-
     const intervalId = setInterval(() => {
       setAge((age) => age + YEARS_IN_100_MILISEC);
     }, 100);
+
     setIsLoading(false);
 
     return () => {
@@ -36,13 +34,11 @@ function Home({ about }: { about: About }) {
     };
   }, []);
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <>
-      <div className="descriptionDiv">
+      <div className="description-div">
         <h1>
           Hello my name is
           <span className={myFont.className}>{about.name}</span>
@@ -52,7 +48,7 @@ function Home({ about }: { about: About }) {
       </div>
       <button
         onClick={() => setShowAbout((prev) => !prev)}
-        className="aboutBtn"
+        className="about-btn"
       >
         Learn more
       </button>
