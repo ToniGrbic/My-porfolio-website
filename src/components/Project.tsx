@@ -1,17 +1,23 @@
 import React from "react";
 import Image from "next/image";
-import styles from "../styles/Projects.module.scss";
+import styles from "@/styles/Projects.module.scss";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
-import { NextSanityImage } from "../app/skills/skills";
-import { Works } from "../types/schema-types";
+import { useNextSanityImage } from "next-sanity-image";
+import { NextSanityImage } from "@/types/return-types";
+import { Works } from "@/types/schema-types";
+import { client } from "@/lib/client";
 
 type ProjectProps = {
   project: Works;
   handleShowModal: (projectId: string) => void;
-  imageProps: NextSanityImage;
 };
 
-const Project = ({ project, handleShowModal, imageProps }: ProjectProps) => {
+const Project = ({ project, handleShowModal }: ProjectProps) => {
+  const imageProps: NextSanityImage = useNextSanityImage(
+    client,
+    project.imgUrl
+  );
+
   return (
     <div className={styles.app__project_item}>
       <div className={`${styles.app__project_img} app__flex`} key={project._id}>
@@ -33,7 +39,7 @@ const Project = ({ project, handleShowModal, imageProps }: ProjectProps) => {
         <h4 className="app__bold-text">{project.title}</h4>
         <p className="app__p-text" style={{ marginTop: 10 }}>
           <button
-            className="openModalBtn"
+            className="app__modal-btn"
             onClick={() => handleShowModal(project._id)}
           >
             Description

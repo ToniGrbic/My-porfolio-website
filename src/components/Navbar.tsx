@@ -1,19 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import styles from "@/styles/Navbar.module.scss";
+import icon from "@/assets/favicon-2.png";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
-import styles from "../styles/Navbar.module.scss";
 import { SocialLinks, SideBar } from ".";
+import Link from "next/link";
 import Image from "next/image";
-import icon from "../assets/favicon-2.png";
+
+const links = {
+  Home: "/",
+  Projects: "/projects",
+  Skills: "/skills",
+  Experiences: "/experiences",
+};
 
 const Navbar = () => {
-  const links = {
-    home: "/",
-    projects: "/projects",
-    skills: "/skills",
-    experiences: "/experiences",
-  };
   const linksArr: [string, string][] = Object.entries(links);
   const [currentLink, setCurrentLink] = useState<string>("");
   const pathname: string = usePathname();
@@ -25,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className={styles.app__navbar}>
       <div className={styles.app__icon_div} aria-hidden="true">
-        <Image src={icon} alt="icon" width={32} height={32} />
+        <Image src={icon} alt="icon" width={32} height={32} priority />
         <h3>portfolio</h3>
       </div>
       <div>
