@@ -12,7 +12,7 @@ export default async function Page() {
 
   return (
     <>
-      <h1 className="handScript">My Skills</h1>
+      <h1 className="hand-script-font">My Skills</h1>
       <h4 style={{ marginTop: "20px" }}>
         click on each skill to view description
       </h4>

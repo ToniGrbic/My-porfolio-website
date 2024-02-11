@@ -80,7 +80,7 @@ a {
     font-size: 3.5rem;
     margin-left: 10px;
   }
-  .handScript {
+  .hand-script-font {
     font-family: handScript;
     font-size: 3.5rem;
   }
@@ -88,6 +88,10 @@ a {
 
 .description-div {
   width: 90%;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .social-link-container {
