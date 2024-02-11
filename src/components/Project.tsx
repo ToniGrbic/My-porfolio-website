@@ -36,15 +36,13 @@ const Project = ({ project, handleShowModal }: ProjectProps) => {
           </a>
         </div>
       </div>
-      <div className={`${styles.app__project_content} app__flex`}>
+      <div
+        className={`${styles.app__project_content} app__flex`}
+        onClick={() => handleShowModal(project._id)}
+      >
         <h4 className="app__bold-text">{project.title}</h4>
         <p className="app__p-text" style={{ marginTop: 10 }}>
-          <button
-            className="app__modal-btn"
-            onClick={() => handleShowModal(project._id)}
-          >
-            Description
-          </button>
+          <button className="app__modal-btn">Description</button>
         </p>
         <div className={`${styles.app__project_tag} app__flex`}>
           <p className="app__p-text">{project.tags[0]}</p>
