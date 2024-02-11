@@ -35,6 +35,7 @@ const Navbar = () => {
             return (
               <li key={`link-${name}`}>
                 <Link
+                  prefetch={false}
                   href={path}
                   onClick={() => setCurrentLink(path)}
                   className={`${styles.app__navbar_link}
