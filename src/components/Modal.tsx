@@ -1,8 +1,8 @@
 "use client";
 import React, { Dispatch, SetStateAction, useRef } from "react";
-import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import useClickOutside from "@/hooks/custom/useClickOutside";
-import { ModalObject } from "@/app/projects/projects";
+import { AiFillEye, AiFillGithub } from "react-icons/ai";
+import type { ModalObject } from "@/types/objects";
 
 interface ModalProps extends ModalObject {
   setShowModal: Dispatch<SetStateAction<boolean>>;

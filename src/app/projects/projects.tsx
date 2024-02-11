@@ -1,16 +1,17 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/Projects.module.scss";
-import { Modal, Project } from "@/components";
-import { Works } from "@/types/schema-types";
 import Filter from "@/components/Filter";
+import { Modal, Project } from "@/components";
+import type { Works } from "@/types/schema-types";
+import type { ModalObject } from "@/types/objects";
 
-export type ModalObject = {
-  description: string;
-  title: string;
-  tags?: string[];
-  codeLink?: string;
-  projectLink?: string;
+const initailModalState: ModalObject = {
+  description: "",
+  title: "",
+  tags: [],
+  codeLink: "",
+  projectLink: "",
 };
 
 export const filterOptions = {
@@ -24,15 +25,10 @@ export const filterOptions = {
 const Projects = ({ projects }: { projects: Works[] }) => {
   const filters = Object.entries(filterOptions);
   const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [modalProject, setModalProject] =
+    useState<ModalObject>(initailModalState);
   const [showProjectModal, setShowProjectModal] = useState<boolean>(false);
   const [filteredProjects, setFilteredProjects] = useState<Works[]>(projects);
-  const [modalProject, setModalProject] = useState<ModalObject>({
-    description: "",
-    title: "",
-    tags: [],
-    codeLink: "",
-    projectLink: "",
-  });
 
   useEffect(() => {
     const filtered = projects.filter(
