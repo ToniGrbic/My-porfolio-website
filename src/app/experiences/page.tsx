@@ -1,4 +1,5 @@
 import styles from "@/styles/Experiences.module.scss";
+import { CURRENT_YEAR } from "@/lib/constants";
 import { client } from "@/lib/client";
 import type { Experiences } from "@/types/schema-types";
 
@@ -9,15 +10,15 @@ async function getExperiences(): Promise<Experiences[]> {
 
 const Page = async () => {
   const experiences = await getExperiences();
-  const year: string = new Date().getFullYear().toString();
 
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.year}>{year}</h3>
+      <h3 className={styles.year}>{CURRENT_YEAR}</h3>
       <div className={styles.timeline}>
         {experiences.map((experience, index) => {
           return (
             <div
+              key={experience._id}
               className={`${index % 2 == 0 ? styles.left : styles.right}
                ${styles.container} `}
             >
