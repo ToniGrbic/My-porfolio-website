@@ -40,7 +40,7 @@ function Home({ about }: { about: About }) {
           Hello my name is
           <span className="hand-script-font inline-block">{about.name}</span>
         </h1>
-        <h2>{about.description}</h2>
+        <h2 className="about-description">{about.description}</h2>
         <h2>{age.toFixed(8)} years old</h2>
       </div>
       <button
