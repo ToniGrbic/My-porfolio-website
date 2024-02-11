@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import localFont from "next/font/local";
 import Loading from "./loading";
 import type { About } from "@/types/schema-types";
 import {

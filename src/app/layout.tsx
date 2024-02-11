@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import "@/styles/globals.scss";
 import { Layout } from "@/components";
+import "@/styles/globals.scss";
 import type { Metadata } from "next/types";
 
 export const metadata: Metadata = {

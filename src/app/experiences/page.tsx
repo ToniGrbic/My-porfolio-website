@@ -1,6 +1,6 @@
 import styles from "@/styles/Experiences.module.scss";
 import { client } from "@/lib/client";
-import { Experiences } from "@/types/schema-types";
+import type { Experiences } from "@/types/schema-types";
 
 async function getExperiences(): Promise<Experiences[]> {
   const query = '*[_type == "Experiences"] | order(_createdAt desc)';

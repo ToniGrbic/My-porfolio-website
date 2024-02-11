@@ -1,8 +1,8 @@
 "use client";
 import styles from "@/styles/NotFound.module.scss";
+import notFoundImage from "@/assets/404-image.png.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import notFoundImage from "../assets/404-image.png.png";
 
 const NotFound = () => {
   const router = useRouter();
