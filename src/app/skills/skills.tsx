@@ -5,30 +5,28 @@ import styles from "@/styles/Skills.module.scss";
 import { client } from "@/lib/client";
 import { Modal } from "@/components";
 import { useNextSanityImage } from "next-sanity-image";
+
 import type { Skills } from "@/types/schema-types";
+import type { ModalObject } from "@/types/objects";
 import type { NextSanityImage } from "@/types/return-types";
 
 const SkillSection = ({ skills }: { skills: Skills[] }) => {
+  const [skillModal, setSkillModal] = useState<ModalObject>();
   const [showSkillModal, setShowSkillModal] = useState<boolean>(false);
-  const [modalDesc, setModalDesc] = useState<string>("");
-  const [modalTitle, setModalTitle] = useState<string>("");
   const nextSanityImage = useNextSanityImage;
 
   const handleShowSkillModal = (skill_id: string) => {
     const currentSkill = skills.find((skill) => skill._id === skill_id)!;
-    setModalDesc(currentSkill.description);
-    setModalTitle(currentSkill.name);
+    const { name: title, description } = currentSkill;
+
+    setSkillModal({ title, description });
     setShowSkillModal(true);
   };
 
   return (
     <>
       {showSkillModal && (
-        <Modal
-          title={modalTitle}
-          description={modalDesc}
-          setShowModal={setShowSkillModal}
-        />
+        <Modal {...skillModal} setShowModal={setShowSkillModal} />
       )}
       <div className={styles.app__skills_container}>
         <div className={styles.app__skills_list}>
