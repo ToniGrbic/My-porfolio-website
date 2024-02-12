@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { SocialLinks, SideBar, NavLinks } from ".";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import styles from "@/styles/Navbar.module.scss";
 import icon from "@/assets/favicon-2.png";
-import { usePathname } from "next/navigation";
-import { SocialLinks, SideBar } from ".";
-import Link from "next/link";
-import Image from "next/image";
 
 const links = {
   Home: "/",
@@ -30,32 +29,11 @@ const Navbar = () => {
         <h3>portfolio</h3>
       </div>
       <div>
-        <ul className={styles.app__navbar_links}>
-          {linksArr.map(([name, path]) => {
-            return (
-              <li key={`link-${name}`}>
-                <Link
-                  prefetch={false}
-                  href={path}
-                  onClick={() => setCurrentLink(path)}
-                  className={`${styles.app__navbar_link}
-                    ${
-                      currentLink === path ? styles.app__navbar_link_color : ""
-                    }`}
-                >
-                  {name}
-                  <div
-                    className={
-                      currentLink === path
-                        ? `${styles.app__navbar_link_underline}`
-                        : ""
-                    }
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <NavLinks
+          links={linksArr}
+          currentLink={currentLink}
+          setCurrentLink={setCurrentLink}
+        />
       </div>
 
       <div className={styles.app__navbar_social_media}>

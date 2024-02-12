@@ -1,30 +1,25 @@
 "use client";
-import React, { Dispatch, SetStateAction, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 import useClickOutside from "@/hooks/custom/useClickOutside";
 import styles from "@/styles/Navbar.module.scss";
-import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
 
-type SidebarProps = {
-  links: [string, string][];
-  setCurrentLink: Dispatch<SetStateAction<string>>;
-  currentLink: string;
-};
+import type { NavLinksProps } from "@/types/objects";
 
-const SideBar = ({ links, currentLink, setCurrentLink }: SidebarProps) => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+const SideBar = ({ links, currentLink, setCurrentLink }: NavLinksProps) => {
   const [toggle, setToggle] = useState<boolean>(false);
+
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const handleClickOutside = () => {
+    setToggle(false);
+  };
+  useClickOutside(wrapperRef, handleClickOutside);
 
   const handleMenuClick = (link: string) => {
     setCurrentLink(link);
     setToggle(false);
   };
-
-  const handleClickOutside = () => {
-    setToggle(false);
-  };
-
-  useClickOutside(wrapperRef, handleClickOutside);
 
   return (
     <>
