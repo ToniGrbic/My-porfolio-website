@@ -1,17 +1,14 @@
 "use client";
-import React, { Dispatch, SetStateAction, useRef } from "react";
+import React, { useRef } from "react";
 import useClickOutside from "@/hooks/custom/useClickOutside";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
-import type { ModalObject } from "@/types/objects";
 
-interface ModalProps extends ModalObject {
-  setShowModal: Dispatch<SetStateAction<boolean>>;
-}
+import type { ModalProps } from "@/types/objects";
 
 const Modal = (props: ModalProps) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const { description, title, tags, codeLink, projectLink, setShowModal } =
     props;
-  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = () => {
     setShowModal(false);
