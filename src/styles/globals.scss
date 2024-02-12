@@ -120,9 +120,11 @@ a {
 .fade {
   opacity: 0;
 }
+
 .about-description {
   margin-top: 2rem;
 }
+
 .about-btn {
   margin-top: 2rem;
   padding: 1rem;
@@ -201,6 +203,7 @@ a {
   padding: 30px;
   text-align: left;
   font-size: 1.1rem;
+
   h2 {
     margin-top: 0.7rem;
   }
@@ -211,6 +214,7 @@ a {
     margin: 7px 0px 7px 30px;
   }
 }
+
 .app__modal-links {
   a {
     color: blue;
@@ -219,9 +223,10 @@ a {
     }
   }
 }
+
 .app__close {
   position: absolute;
-  top: -3px;
+  top: 0px;
   right: 10px;
   color: var(--red-color);
   font-size: 28px;
