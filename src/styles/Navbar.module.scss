@@ -17,6 +17,10 @@
   position: fixed;
   top: 0px;
   z-index: 2;
+
+  @media screen and (max-width: 520px) {
+    justify-content: space-between;
+  }
 }
 .app__icon_div {
   display: flex;
@@ -114,7 +118,7 @@
       justify-content: center;
       align-items: flex-end;
       flex-direction: column;
-      background-color: var(--gray-navbar-color-menu);
+      background-color: var(--gray-navbar-color-transparent);
 
       svg {
         width: 35px;
@@ -183,7 +187,7 @@
     }
   }
   @media screen and (max-width: 520px) {
-    width: 140px;
+    display: none;
   }
 }
 

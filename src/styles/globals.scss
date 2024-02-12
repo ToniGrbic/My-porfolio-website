@@ -36,8 +36,7 @@ body {
   --dark-red-color: #d72834;
   --purple-color: rgb(138, 48, 135);
   --dark-purple-color: rgb(97, 32, 95);
-  --gray-navbar-color-menu: rgba(83, 83, 83, 0.9);
-  --gray-navbar-color-transparent: rgba(83, 83, 83, 0.8);
+  --gray-navbar-color-transparent: rgba(83, 83, 83, 0.9);
   --dark-color: rgb(53, 53, 53);
 }
 
@@ -107,9 +106,9 @@ a {
 }
 
 .about {
-  width: 80%;
-  margin-bottom: 9rem;
-  margin-top: 1.25rem;
+  max-width: 630px;
+  width: 90%;
+  margin: 1.25rem 1.5rem 7rem 1.5rem;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.55);
   border-radius: 10px;
