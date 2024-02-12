@@ -6,14 +6,6 @@ import { Modal, Project } from "@/components";
 import type { Works } from "@/types/schema-types";
 import type { ModalObject } from "@/types/objects";
 
-const initialModal: ModalObject = {
-  description: "",
-  title: "",
-  tags: [],
-  codeLink: "",
-  projectLink: "",
-};
-
 export const filterOptions = {
   All: "All",
   React: "ReactJS",
@@ -25,9 +17,9 @@ export const filterOptions = {
 const Projects = ({ projects }: { projects: Works[] }) => {
   const filters = Object.entries(filterOptions);
   const [activeFilter, setActiveFilter] = useState<string>("All");
-  const [modalProject, setModalProject] = useState<ModalObject>(initialModal);
+  const [projectModal, setProjectModal] = useState<ModalObject>();
   const [showProjectModal, setShowProjectModal] = useState<boolean>(false);
-  const [filteredProjects, setFilteredProjects] = useState<Works[]>(projects);
+  const [filteredProjects, setFilteredProjects] = useState<Works[]>([]);
 
   useEffect(() => {
     const filtered = projects.filter(
@@ -42,14 +34,14 @@ const Projects = ({ projects }: { projects: Works[] }) => {
     ) as Works;
     const { title, description, projectLink, codeLink, tags } = currentProject;
 
-    setModalProject({ title, description, projectLink, codeLink, tags });
+    setProjectModal({ title, description, projectLink, codeLink, tags });
     setShowProjectModal(true);
   };
 
   return (
     <div className={styles.app__project_portfolio}>
       {showProjectModal && (
-        <Modal {...modalProject} setShowModal={setShowProjectModal} />
+        <Modal {...projectModal} setShowModal={setShowProjectModal} />
       )}
       <Filter
         filters={filters}
