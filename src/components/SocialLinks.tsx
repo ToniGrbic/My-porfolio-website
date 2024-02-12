@@ -5,49 +5,48 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 
+const socialLinks = [
+  {
+    name: "Github",
+    link: "https://github.com/ToniGrbic",
+    icon: <AiFillGithub size={30} />,
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/toni-grbi%C4%87-6aa509249/",
+    icon: <AiFillLinkedin size={30} />,
+  },
+  {
+    name: "Instagram",
+    link: "https://www.instagram.com/toni.grbic/",
+    icon: <AiOutlineInstagram size={30} />,
+  },
+];
+
 const SocialLinks = ({ showIconText = false }: { showIconText?: boolean }) => {
   return (
     <>
-      <div>
-        <a
-          aria-label="github"
-          href="https://github.com/ToniGrbic"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="social-link-container">
-            <AiFillGithub size={30} />
-
-            {showIconText ? <p className="social-link-text">Github</p> : ""}
+      {socialLinks.map((socialLink) => {
+        return (
+          <div>
+            <a
+              aria-label={socialLink.name}
+              href={socialLink.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="social-link-container">
+                {socialLink.icon}
+                {showIconText ? (
+                  <p className="social-link-text">{socialLink.name}</p>
+                ) : (
+                  ""
+                )}
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-      <div>
-        <a
-          aria-label="linkedin"
-          href="https://www.linkedin.com/in/toni-grbi%C4%87-6aa509249/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="social-link-container">
-            <AiFillLinkedin size={30} />
-            {showIconText ? <p className="social-link-text">Linkden</p> : ""}
-          </div>
-        </a>
-      </div>
-      <div>
-        <a
-          aria-label="instagram"
-          href="https://www.instagram.com/toni.grbic/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="social-link-container">
-            <AiOutlineInstagram size={30} />
-            {showIconText ? <p className="social-link-text">Instagram</p> : ""}
-          </div>
-        </a>
-      </div>
+        );
+      })}
     </>
   );
 };
