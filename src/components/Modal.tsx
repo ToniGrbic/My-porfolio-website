@@ -29,8 +29,8 @@ const Modal = (props: ModalProps) => {
           <div>
             <h3>Tech and tools used:</h3>
             <ul>
-              {tags?.map((tag: string, index: number) => {
-                return <li key={index}>{tag}</li>;
+              {tags?.map((tag: string) => {
+                return <li key={tag}>{tag}</li>;
               })}
             </ul>
             {codeLink && (

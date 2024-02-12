@@ -28,7 +28,7 @@ const SocialLinks = ({ showIconText = false }: { showIconText?: boolean }) => {
     <>
       {socialLinks.map((socialLink) => {
         return (
-          <div>
+          <div key={socialLink.name}>
             <a
               aria-label={socialLink.name}
               href={socialLink.link}
