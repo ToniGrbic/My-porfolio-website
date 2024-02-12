@@ -13,9 +13,9 @@ const Filter = ({ filters, setFilter, activeFilter }: FilterProps) => {
       {filters.map(([_, filter]) => (
         <button
           key={filter}
+          onClick={() => setFilter(filter)}
           className={`${styles.app__filter_btn} 
             ${activeFilter === filter ? styles.app__filter_btn_active : ""}`}
-          onClick={() => setFilter(filter)}
         >
           {filter}
         </button>
