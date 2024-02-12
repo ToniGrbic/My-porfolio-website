@@ -14,7 +14,10 @@ const Footer = () => {
       </div>
       <div className={styles.app__footer_text}>
         <p>Gmail: tonigrbic.5@gmail.com</p>
-        <p>{CURRENT_YEAR} Created by Toni Grbić, all rights reserved</p>
+        <p>
+          Created by <span className="inline-block">Toni Grbić</span>, all
+          rights reserved {CURRENT_YEAR}
+        </p>
       </div>
     </div>
   );

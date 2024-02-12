@@ -26,13 +26,20 @@
 .app__footer_text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
   gap: 1rem;
 }
 
 @media screen and (max-width: 567px) {
   .app__footer {
-    gap: 3rem;
     align-items: space-between;
     font-size: 0.9rem;
+    gap: 2rem;
+    align-items: flex-end;
+  }
+
+  .app__footer_text {
+    margin-bottom: 5px;
   }
 }
