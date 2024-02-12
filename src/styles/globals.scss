@@ -190,6 +190,7 @@ a {
 }
 
 .app__modal-content {
+  position: relative;
   background-color: var(--gray-color);
   margin: 14rem auto;
   padding: 20px;
@@ -200,6 +201,9 @@ a {
   padding: 30px;
   text-align: left;
   font-size: 1.1rem;
+  h2 {
+    margin-top: 0.7rem;
+  }
   p {
     margin: 7px 0px 7px 10px;
   }
@@ -216,15 +220,13 @@ a {
   }
 }
 .app__close {
-  position: relative;
+  position: absolute;
+  top: -3px;
+  right: 10px;
   color: var(--red-color);
-  float: right;
   font-size: 28px;
   font-weight: bold;
   &:hover {
-    cursor: pointer;
-  }
-  &:focus {
     cursor: pointer;
   }
 }
