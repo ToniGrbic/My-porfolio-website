@@ -182,6 +182,7 @@ a {
 }
 
 .app__modal {
+  animation: modal-appear 0.5s ease-in-out;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -189,6 +190,15 @@ a {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+@keyframes modal-appear {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
 }
 
 .app__modal-content {
