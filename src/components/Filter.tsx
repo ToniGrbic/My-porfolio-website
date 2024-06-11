@@ -8,6 +8,7 @@ export const filterOptions = {
   NextJS: "NextJS",
   JavaScript: "JavaScript",
   TypeScript: "TypeScript",
+  NestJS: "NestJS",
 };
 
 type FilterProps = {
